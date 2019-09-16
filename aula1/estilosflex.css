@@ -12,7 +12,12 @@ body {
 .bloco1 {
     background: white;
     width: 276px;
-    height: 506px;
+    height: 420px;
+}
+.ca1 {
+    background: #EAECEE;
+    width: 276px;
+    height: 42px;
 }
 
 .bloco2 {
@@ -34,13 +39,25 @@ body {
 .caix3 {
     background: white;
     width: 604px;
-    height: 238px;   
+    height: 119px;
+    color: black;
+    font-family: Arial;
+    text-align: justify;
+    font-size: 45px;
+
+}
+.caix4 {
+    background: white;
+    width: 604px;
+    height: 119px;
+    color: black;
+    font-family: Arial;
+    text-align: justify;
+    font-size: 45px;
 }
 
 .bloco3 {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .caixa1 {
@@ -59,3 +76,8 @@ body {
     font-weight: bold;
     text-align: center;
 }
+a {
+    text-decoration: none;
+    color:black
+	}
+
