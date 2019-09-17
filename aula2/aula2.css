@@ -17,58 +17,70 @@ body {
     width: 100vw;
 }
 
-.caixas-coloridas {
-   display: flex;
-    
-}
-
-.caixa-azul {
-    width: 30%;
-    height: 100px;
-    background: blue;
-}
-
-.caixa-amarela {
-    width: 30%;
-    height: 100px;
-    background:yellow;
-    
-}
-
-.caixa-verde {
-    width: 30%;
-    height: 100px;
-    background:green;
-    
-}
-
-.caixas-big {
-   display: flex;
-   justify-content: space-around;
-  
-}
-
-.caixa-preta {
-    background: black;
-    width: 45%;
-    height: 400px;
-    color: white;
-}
-
-.ultimas-caixas {
+.caixa-azul ul {
     display: flex;
+    width: 100vw;
     justify-content: space-around;
-   
- }
- 
- .caixa-branca {
-    background: pink;
-    width: 30%;
-    height: 100px;
+}
+.caixa-azul li {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: blue;
+    padding: 50px;
+    width: 400px;;
+
+}
+
+.caixa-amarela ul {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+}
+.caixa-amarela li {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: yellow;
+    padding: 50px;
+    width: 400px;;
+
+}
+
+.caixa-preta ul {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+
+}
+.caixa-preta li {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: black;
     color: white;
- }
+    padding: 50px;
+    width: 700px;
+    height: 400px;
+
+}
+
+.caixa-cinza ul {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+}
+.caixa-cinza li {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: grey;
+    padding: 50px;
+    width: 400px;;
+
+}
 
  li {
      list-style: none;
+ }
+
+ @media screen and (max-width: 300px) {
+    .caixa-azul > li {background-color: green;}
  }
  
