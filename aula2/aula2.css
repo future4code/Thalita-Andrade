@@ -3,17 +3,28 @@ body {
     padding: 0;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.top {
+    display: flex;
+}
+
+.barra-left {
+    width: 250px;
+    height: 100%;
+}
+
 .barra-top {
     background: red;
     width: 100%;
     height: 100px;
 }
 
-.section {
-    background: white;
+.conteudo{
     display: flex;
-    flex-direction: column; 
-    
+    flex-direction: column;
 }
 
 .caixa-azul ul {
@@ -27,12 +38,17 @@ body {
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .caixa-amarela ul {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
+
 .caixa-amarela li {
     background: yellow;
     width: 400px;
@@ -40,6 +56,9 @@ body {
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .caixa-preta ul {
@@ -52,6 +71,9 @@ body {
     color: white;
     width: 700px;
     height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .caixa-branca ul {
@@ -66,13 +88,15 @@ body {
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
- li {
-     list-style: none;
- }
 
  @media screen and (max-width: 300px) {
-    nth-child(3) > li {background-color: green;}
+    li-child(3)  {
+        
+    }
  }
  
