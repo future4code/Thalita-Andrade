@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.barra-top {
+    background: red;
+    width: 100vw;
+    height: 80px;
+}
+
+.section {
+    background: white;
+    width: 100vw;
+}
+
+.caixas-coloridas {
+   display: flex;
+    
+}
+
+.caixa-azul {
+    width: 30%;
+    height: 100px;
+    background: blue;
+}
+
+.caixa-amarela {
+    width: 30%;
+    height: 100px;
+    background:yellow;
+    
+}
+
+.caixa-verde {
+    width: 30%;
+    height: 100px;
+    background:green;
+    
+}
+
+.caixas-big {
+   display: flex;
+   justify-content: space-around;
+  
+}
+
+.caixa-preta {
+    background: black;
+    width: 45%;
+    height: 400px;
+    color: white;
+}
+
+.ultimas-caixas {
+    display: flex;
+    justify-content: space-around;
+   
+ }
+ 
+ .caixa-branca {
+    background: pink;
+    width: 30%;
+    height: 100px;
+    color: white;
+ }
+
+ li {
+     list-style: none;
+ }
+ 
