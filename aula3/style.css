@@ -1,6 +1,6 @@
 body {
     margin: 0;
-
+    padding-bottom: 100px; 
 }
 
 img {
@@ -24,7 +24,7 @@ nav {
 
 footer {
     background: #545454;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100px;
     bottom: 0;
@@ -37,8 +37,7 @@ input, ::placeholder {
 }
 
 section {
-    display: flex;
-    justify-content: space-around;
+ 
     margin-top: 80px;
     margin-left: 80px; 
 }
@@ -53,6 +52,30 @@ li {
     border-width: 1px;
     border-style: solid;
     border-color: green;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 300px;
+}   
+
+video {
+    width: 60%;
+    margin-left: 20%;
+}
+
+section ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+li p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color:black
 }
 
 
