@@ -15,6 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     position: relative;
+    align-items: center;
 }
 
 nav {
@@ -28,16 +29,22 @@ footer {
     width: 100vw;
     height: 100px;
     bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+footer h1 {
+    color: white;
+    padding-left: 20px;
 }
 
 input, ::placeholder {
     width: 200px;
     height: 30px;
-    margin: 30px; 
+    margin-right: 20px;
 }
 
 section {
- 
     margin-top: 80px;
     margin-left: 80px; 
 }
@@ -45,6 +52,7 @@ section {
 header p {
     font-size: 30px;
     font-weight: bold;
+    padding-left: 20px
 }
 
 li {
@@ -77,13 +85,3 @@ a {
     text-decoration: none;
     color:black
 }
-
-
-
-
-
-
-
-
-
-
