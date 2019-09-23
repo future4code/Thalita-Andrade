@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Planner Semanal</title>
 
     <style>
 
@@ -41,7 +41,7 @@
         border: 2px;
         border-color: black;
         border-style: solid;
-        height: 30px;
+        height: 50px;
         width: 80%;
     }
 
@@ -62,19 +62,23 @@
         margin-right: 2vh;
     }
 
-    .escolher-dia {
+    #dia-da-semana {
         margin-right: 2vh;
     }
     </style>
 
     <script>
     
-    
-    
-    
-    
-    </script>
+    function criarTarefa() {
+        let msgInput = document.querySelector("input").value;
 
+        let diaDaSemana = document.querySelector("#dia-da-semana").value;
+
+        let listaDoDiaSelecionado = document.querySelector("#" + diaDaSemana);
+
+        listaDoDiaSelecionado.innerHTML += "<li>" + msgInput + "</li>"; 
+    }
+    </script>
 </head>
 
 <body>
@@ -82,44 +86,80 @@
         <h1>Minha Semana</h1>
 
         <div class="adicionar-tarefa">
-            <label>Nova Tarefa:</label>
 
             <div class="msg-tarefa">
+                <label>Nova Tarefa:</label>
                 <input type="text" id="tarefa">
             </div>
 
-            <div class="escolher-dia">
-                <select>
-                <option>Segunda-Feira</option>
-                <option>Terça-Feira</option>
-                <option>Quarta-Feira</option>
-                <option>Quinta-Feira</option>
-                <option>Sexta-Feira</option>
-                <option>Sábado</option>
-                <option>Domingo</option>
-                </select>
-            </div>
+            <select id="dia-da-semana">
+                <option value="segunda">Segunda-Feira</option>
+                <option value="terca">Terça-Feira</option>
+                <option value="quarta">Quarta-Feira</option>
+                <option value="quinta">Quinta-Feira</option>
+                <option value="sexta">Sexta-Feira</option>
+                <option value="sabado">Sábado</option>
+                <option value="domingo">Domingo</option>
+            </select>
 
             <div class="criar-tarefa">
-                <button>Criar Tarefa!</button>
+                <button onclick="criarTarefa()">Criar Tarefa!</button>
             </div>
-        </div>
 
+        </div>
     </header>
 
     <hr>
 
     <section>
         <div class="semana">
-            <div class="diaDaSemana">Segunda</div>
-            <div class="diaDaSemana">Terça</div>
-            <div class="diaDaSemana">Quarta</div>
-            <div class="diaDaSemana">Quinta</div>
-            <div class="diaDaSemana">Sexta</div>
-            <div class="diaDaSemana">Sábado</div>
-            <div class="diaDaSemana">Domingo</div>
-        </div>
 
+            <div class="diaDaSemana">
+                <h3>SEGUNDA</h3>
+                <ul id="segunda">
+                </ul>
+            </div>
+
+            <div class="diaDaSemana">
+                <h3>TERÇA</h3>
+                <ul id="terca">
+                </ul> 
+            </div>
+
+            <div class="diaDaSemana">
+                <h3>QUARTA</h3>
+                <ul id="quarta">
+                </ul> 
+            </div>
+
+            <div class="diaDaSemana">
+                <h3>QUINTA</h3>
+                <ul id="quinta">
+                </ul> 
+            </div>
+
+
+            <div class="diaDaSemana">
+                <h3>SEXTA</h3>
+                <ul id="sexta">
+                </ul> 
+            </div>     
+
+
+            <div class="diaDaSemana">
+                <h3>SÁBADO</h3>
+                <ul id="sabado">
+                </ul> 
+            </div>
+
+
+            <div class="diaDaSemana">
+                <h3>DOMINGO</h3>
+                <ul id="domingo">
+                </ul> 
+            </div>
+
+        </div>
     </section>
 
 </body>
