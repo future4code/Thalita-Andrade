@@ -5,8 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
-<body>
+
+    <style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: cadetblue
+    }
+    header {
+        display:flex;
+        justify-content: space-around;
+        height: 150px;
+        align-items: center;
+    }
+
+    .adicionar-tarefa {
+        display:flex;
+        align-items: center;
+    }
+
+    #tarefa {
+        width: 20vh;
+        height: 2vh;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .semana {
+        display: flex;
+        justify-content: space-around;
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+        height: 30px;
+        width: 80%;
+    }
+
+    .diaDaSemana {
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+        height: 400px;
+        width: 80%;
+        font-weight: bold;
+    }
+
+    label {
+        margin-right: 2vh;
+    }
+
+    .msg-tarefa {
+        margin-right: 2vh;
+    }
+
+    .escolher-dia {
+        margin-right: 2vh;
+    }
+    </style>
+
+    <script>
     
+    
+    
+    
+    
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Minha Semana</h1>
+
+        <div class="adicionar-tarefa">
+            <label>Nova Tarefa:</label>
+
+            <div class="msg-tarefa">
+                <input type="text" id="tarefa">
+            </div>
+
+            <div class="escolher-dia">
+                <select>
+                <option>Segunda-Feira</option>
+                <option>Terça-Feira</option>
+                <option>Quarta-Feira</option>
+                <option>Quinta-Feira</option>
+                <option>Sexta-Feira</option>
+                <option>Sábado</option>
+                <option>Domingo</option>
+                </select>
+            </div>
+
+            <div class="criar-tarefa">
+                <button>Criar Tarefa!</button>
+            </div>
+        </div>
+
+    </header>
+
+    <hr>
+
+    <section>
+        <div class="semana">
+            <div class="diaDaSemana">Segunda</div>
+            <div class="diaDaSemana">Terça</div>
+            <div class="diaDaSemana">Quarta</div>
+            <div class="diaDaSemana">Quinta</div>
+            <div class="diaDaSemana">Sexta</div>
+            <div class="diaDaSemana">Sábado</div>
+            <div class="diaDaSemana">Domingo</div>
+        </div>
+
+    </section>
+
 </body>
 </html>
