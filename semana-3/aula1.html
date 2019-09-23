@@ -77,7 +77,12 @@
         let listaDoDiaSelecionado = document.querySelector("#" + diaDaSemana);
 
         listaDoDiaSelecionado.innerHTML += "<li>" + msgInput + "</li>"; 
+
+        if(document.querySelector("input").value!="") {
+            document.querySelector("input").value=""
+        }
     }
+    
     </script>
 </head>
 
@@ -89,7 +94,7 @@
 
             <div class="msg-tarefa">
                 <label>Nova Tarefa:</label>
-                <input type="text" id="tarefa">
+                <input type="text" id="tarefa" value="tarefa">
             </div>
 
             <select id="dia-da-semana">
@@ -103,7 +108,9 @@
             </select>
 
             <div class="criar-tarefa">
-                <button onclick="criarTarefa()">Criar Tarefa!</button>
+                <button 
+                    onclick="criarTarefa();">Criar Tarefa! 
+                </button>
             </div>
 
         </div>
