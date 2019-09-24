@@ -71,6 +71,15 @@
                 window . localStorage . setItem ( chave , JSON . stringify ( item ) ); 
             } 
         }  
+
+        function buscaItem(chave) {
+            const valor = window.localStorage.getItem(chave);
+            if (valor) {
+            return JSON.parse(valor);
+            }
+            return [];
+        }
+    
     </script>
 </head>
 <body>
@@ -104,11 +113,11 @@
             Cadastrar
         </button>
 
-        <a hrf="alunoscadastrados.html">
-        <button type="button" id="inscritos" onclick="cadastroInscritos()">
-            Inscritos
-        </button>
-    </a>
+        <a href="alunoscadastrados.html">
+            <button type="button" id="inscritos">
+                Inscritos
+            </button>
+        </a>
     </form>
 </body>
 </html>
