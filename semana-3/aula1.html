@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Planner Semanal</title>
+
+    <style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: cadetblue
+    }
+    header {
+        display:flex;
+        justify-content: space-around;
+        height: 150px;
+        align-items: center;
+    }
+
+    .adicionar-tarefa {
+        display:flex;
+        align-items: center;
+    }
+
+    #tarefa {
+        width: 20vh;
+        height: 2vh;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .semana {
+        display: flex;
+        justify-content: space-around;
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+        height: 50px;
+        width: 80%;
+    }
+
+    .diaDaSemana {
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+        height: 400px;
+        width: 80%;
+        font-weight: bold;
+    }
+
+    label {
+        margin-right: 2vh;
+    }
+
+    .msg-tarefa {
+        margin-right: 2vh;
+    }
+
+    #dia-da-semana {
+        margin-right: 2vh;
+    }
+    </style>
+
+    <script>
+    
+    function criarTarefa() {
+        let msgInput = document.querySelector("input").value;
+
+        let diaDaSemana = document.querySelector("#dia-da-semana").value;
+
+        let listaDoDiaSelecionado = document.querySelector("#" + diaDaSemana);
+
+        listaDoDiaSelecionado.innerHTML += "<li>" + msgInput + "</li>"; 
+
+        if(document.querySelector("input").value!="") {
+            document.querySelector("input").value=""
+        }
+    }
+
+    function textoSublinhado() {
+       
+    }
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Minha Semana</h1>
+
+        <div class="adicionar-tarefa">
+
+            <div class="msg-tarefa">
+                <label>Nova Tarefa:</label>
+                <input type="text" id="tarefa" value="tarefa">
+            </div>
+
+            <select id="dia-da-semana">
+                <option value="segunda">Segunda-Feira</option>
+                <option value="terca">Terça-Feira</option>
+                <option value="quarta">Quarta-Feira</option>
+                <option value="quinta">Quinta-Feira</option>
+                <option value="sexta">Sexta-Feira</option>
+                <option value="sabado">Sábado</option>
+                <option value="domingo">Domingo</option>
+            </select>
+
+            <div class="criar-tarefa">
+                <button 
+                    onclick="criarTarefa();">Criar Tarefa! 
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <hr>
+
+    <section>
+        <div class="semana">
+
+            <div class="diaDaSemana">
+                <h3>SEGUNDA</h3>
+                <ul id="segunda">
+                </ul>
+            </div>
+
+            <div class="diaDaSemana">
+                <h3>TERÇA</h3>
+                <ul id="terca">
+                </ul> 
+            </div>
+
+            <div class="diaDaSemana">
+                <h3>QUARTA</h3>
+                <ul id="quarta">
+                </ul> 
+            </div>
+
+            <div class="diaDaSemana">
+                <h3>QUINTA</h3>
+                <ul id="quinta">
+                </ul> 
+            </div>
+
+
+            <div class="diaDaSemana">
+                <h3>SEXTA</h3>
+                <ul id="sexta">
+                </ul> 
+            </div>     
+
+
+            <div class="diaDaSemana">
+                <h3>SÁBADO</h3>
+                <ul id="sabado">
+                </ul> 
+            </div>
+
+
+            <div class="diaDaSemana">
+                <h3>DOMINGO</h3>
+                <ul id="domingo">
+                </ul> 
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
