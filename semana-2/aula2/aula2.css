@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.top {
+    display: flex;
+}
+
+.barra-left {
+    width: 250px;
+    height: 100%;
+}
+
+.barra-top {
+    background: red;
+    width: 100%;
+    height: 100px;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-azul ul {
+    display: flex;
+    justify-content: space-around;
+}
+.caixa-azul li {
+    background: blue;
+    width: 400px;
+    height: 150px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa-amarela ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.caixa-amarela li {
+    background: yellow;
+    width: 400px;
+    height: 150px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa-preta ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.caixa-preta li {
+    background: black;
+    color: white;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa-branca ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.caixa-branca li {
+    background: white;
+    width: 400px;
+    height: 150px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ @media screen and (max-width: 300px) {
+    li-child(3)  {
+        
+    }
+ }
+ 
