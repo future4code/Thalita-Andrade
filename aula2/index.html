@@ -50,7 +50,7 @@
 
         function cadastrarAluno() {
 
-            const nome = document.getElementById("name").value;
+            const nome = document.getElementById("nome").value;
             const idade = document.getElementById("idade").value;
             const email = document.getElementById("email").value;
             const telefone = document.getElementById("telefone").value;
@@ -61,16 +61,16 @@
                 email: email,
                 telefone: telefone,
             }
-
-            if(document.querySelector("input").value!="") {
-                document.querySelector("input").value=""
-            }
+            console.log(cadastro);
+            
+            salvaItem("listaDeCadastrados", cadastro);
         } 
 
-        fuction cadastroInscritos() {
-            console.log(buscaItem("salvarNome"));
-        }
-    
+        function salvaItem ( chave , item ) {
+             if ( item && chave ) { 
+                window . localStorage . setItem ( chave , JSON . stringify ( item ) ); 
+            } 
+        }  
     </script>
 </head>
 <body>
@@ -100,13 +100,15 @@
 
         <input type="tel" id="telefone"  placeholder="Telefone">
 
-        <button type="submit" id="cadastrar" onclick="cadastrarAluno()">
+        <button type="button" id="cadastrar" onclick="cadastrarAluno()">
             Cadastrar
         </button>
 
+        <a hrf="alunoscadastrados.html">
         <button type="button" id="inscritos" onclick="cadastroInscritos()">
             Inscritos
         </button>
+    </a>
     </form>
 </body>
 </html>
