@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Future4</title>
+
+    <script>
+        function buscaItem(chave) {
+            const valor = window.localStorage.getItem(chave);
+            if (valor) {
+            return JSON.parse(valor);
+            }
+            return [];
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
