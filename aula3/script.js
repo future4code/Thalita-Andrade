@@ -18,6 +18,16 @@ function criarPost(){
     listaDePost.push(post);
 
     console.log(listaDePost)
+
+    if(document.getElementById("titulo").value!="") {
+        document.getElementById("titulo").value=""
+    }
+    if(document.getElementById("conteudo").value!="") {
+        document.getElementById("conteudo").value=""
+    }
+    if(document.getElementById("autor").value!="") {
+        document.getElementById("autor").value=""
+    }
 }
 
 const container = document.querySelector(".container");
