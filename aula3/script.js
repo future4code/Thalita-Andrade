@@ -6,6 +6,8 @@ class Post {
     }
 }
 
+let listaDePost = [];
+
 function criarPost(){
     const titulo = document.getElementById("titulo").value;
     const autor = document.getElementById("autor").value;
@@ -13,6 +15,18 @@ function criarPost(){
 
     const post = new Post(titulo, autor,conteudo);
 
-    console.log(post)
+    listaDePost.push(post);
+
+    console.log(listaDePost)
+}
+
+const container = document.querySelector(".container");
+
+for(let post of listaDePost) {
+    container.innerHTML += '<div>' +
+                                '<p> Título: ' + post.titulo + '</p>' +
+                                '<p> Autor: ' + post.autor + '</p>' +
+                                '<p> Conteúdo: ' + post.conteudo + '</p>' +
+                            '</div>'
 }
 

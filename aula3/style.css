@@ -2,6 +2,10 @@ body {
     margin: 0;
     padding: 0;
 }
+section {
+    display: grid;
+    grid-template-columns: 3fr 4fr
+}
 
 .formulario {
     display: flex;
