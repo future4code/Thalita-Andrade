@@ -17,20 +17,21 @@
 
             <h3>Cadastra Despesas</h3>
 
-            <div class="input-valorGasto">
+            <div class="valorGasto">
                 <label>
                     Valor 
                 </label>
 
-                <input>
+                <input type="number" id="input-valorGasto">
             </div>
 
-            <div class="input-tipoDeGasto">
+            <div class="tipoDeGasto">
+
                 <label>
                     Tipo (Casa, Viagem, Rolês, Outros)
                 </label>
 
-                <select>
+                <select id="input-tipoDeGasto">
                     <option>Casa</option>
                     <option>Viagem</option>
                     <option>Rolês</option>
@@ -38,12 +39,16 @@
                 </select>
             </div>
 
-            <div class="input-descricaoDoGasto">
+            <div class="descricaoDoGasto">
+
                 <label>Descrição</label>
-                <input>
+
+                <input type="text" id="input-descricaoDoGasto">
+
             </div>
 
-            <button type="button" id="cadastrarDespesa">Cadastrar Despesa</button>
+            <button type="button" id="cadastrarDespesa" onclick="salvarGasto()">Cadastrar Despesa</button>
+
         </section>
 
         <section class="tipoDeDespesa">
@@ -65,24 +70,24 @@
 
             </div>
 
-            <div class="input-valorMinimo">
+            <div class="valorMinimo">
                 
                 <label>
                 Valor Minímo
                 </label>
 
-                <input>
+                <input type="number" id="input-valorMinimo">
             </div>
 
-            <div class="input-valorMaximo">
+            <div class="valorMaximo">
                 <label>
                 Valor Máximo
                 </label>
 
-                <input>
+                <input type="number" id="input-valorMaximo">
             </div>
-            <button type="button" id="filtrar">Filtrar</button>
-            <button type="button" id="limparFiltro">Limpar Filtro</button>
+            <button type="button" id="filtrar" onclick="">Filtrar</button>
+            <button type="button" id="limparFiltro" onclick="">Limpar Filtro</button>
         </section>
 
         <section class="totalDeDespesas">
@@ -91,9 +96,8 @@
         </section>
 
     </div>
-
-</body>
-
+    
     <script src="script.js"></script>
+</body>
 
 </html>
