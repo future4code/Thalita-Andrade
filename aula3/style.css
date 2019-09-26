@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+section {
+    display: grid;
+    grid-template-columns: 3fr 4fr
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vh;
+}
+
+#titulo {
+    width: 30vh;
+    height: 2vh;
+    margin-top: 1vh;
+}
+
+#autor {
+    width: 30vh;
+    height: 2vh;
+    margin-top: 1vh;
+}
+
+#conteudo {
+    width: 60vh;
+    height: 70vh;
+    margin-top: 1vh;
+}
+
+label {
+    margin-top: 1vh;
+}
+
+#criarPost {
+    width: 10vh;
+    height: 5vh;
+    margin-top: 1vh;
+}
