@@ -31,7 +31,7 @@ function salvarGasto() {
 
     todosGastos.push(gastos);
 
-    limparInput() 
-
+    limparInput()
+  
     console.log("todosOsGastos", todosGastos)
 }
