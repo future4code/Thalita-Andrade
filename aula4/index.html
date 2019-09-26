@@ -5,8 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <div class="container">
+
+        <section class="cadastro">
+
+            <h1>Controlador de Despesas</h1>
+
+            <h3>Cadastra Despesas</h3>
+
+            <div class="input-valorGasto">
+                <label>
+                    Valor 
+                </label>
+
+                <input>
+            </div>
+
+            <div class="input-tipoDeGasto">
+                <label>
+                    Tipo (Casa, Viagem, Rolês, Outros)
+                </label>
+
+                <select>
+                    <option>Casa</option>
+                    <option>Viagem</option>
+                    <option>Rolês</option>
+                    <option>Outros</option>
+                </select>
+            </div>
+
+            <div class="input-descricaoDoGasto">
+                <label>Descrição</label>
+                <input>
+            </div>
+
+            <button type="button" id="cadastrarDespesa">Cadastrar Despesa</button>
+        </section>
+
+        <section class="tipoDeDespesa">
+
+            <h1>Despesas Detalhadas</h1>
+
+            <div class="input-detalhesTipoGasto">
+
+                <label>
+                    Tipo (Casa, Viagem, Rolês, Outros)
+                </label>
+
+                <select>
+                    <option>Casa</option>
+                    <option>Viagem</option>
+                    <option>Rolês</option>
+                    <option>Outros</option>
+                </select>
+
+            </div>
+
+            <div class="input-valorMinimo">
+                
+                <label>
+                Valor Minímo
+                </label>
+
+                <input>
+            </div>
+
+            <div class="input-valorMaximo">
+                <label>
+                Valor Máximo
+                </label>
+
+                <input>
+            </div>
+            <button type="button" id="filtrar">Filtrar</button>
+            <button type="button" id="limparFiltro">Limpar Filtro</button>
+        </section>
+
+        <section class="totalDeDespesas">
+            <h1>Extrato</h1>
+            <h3>Valor Total:</h3>
+        </section>
+
+    </div>
+
 </body>
+
+    <script src="script.js"></script>
+
 </html>
