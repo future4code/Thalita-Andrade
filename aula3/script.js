@@ -45,18 +45,8 @@ function postCriados(){
                                     '<p><img src =' + post.imagem + '></p>' +
                                 '</div>'
     }
-    salvarPost()
 }
 
-function salvarPost() {
-    const titulo = document.getElementById("titulo").value;
-    const autor = document.getElementById("autor").value;
-    const conteudo = document.getElementById("conteudo").value;
-    
-    localStorage.setItem("titulo", titulo);
-    localStorage.setItem("autor", autor);    
-    localStorage.setItem("conteudo", conteudo);    
-}
 
 
 
