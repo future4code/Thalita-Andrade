@@ -89,7 +89,24 @@
 
 
 
-    // 3)
+    // 3) Esso código não funciona.
+    // O primeiro erro deste código é a const, pois ela não estar definida. O segundo, é que ele não tem uma condição de parada, gerando um loop.
+    // A operação i * 2 também esta incorreta, desta forma ele não consegue o obter os números pares.
+
+        function exercicio3() {
+            const quantidadeDeNumerosPares = [0,1,2,3,4,5,6,7,8,9,10]
+
+            let i = 0  
+
+            while (i <= quantidadeDeNumerosPares.length) { 
+                if( i % 2 === 0){
+                    console.log(i)
+                } 
+                i = i + 1;
+            } 
+        }
+        
+
 
 
     // 4) 
@@ -146,15 +163,57 @@
     // 1)
 
         // a)
+            function exercicio2a() {
+                const listaDePessoas =  [
+                                            { nome: "Pedro", idade: 20 },
+                                            { nome: "João", idade: 10 },
+                                            { nome: "Paula", idade: 12 },
+                                            { nome: "Artur", idade: 89 } 
+                                        ];
+
+                let listaDeAdultos = [];
+
+                for (let pessoas of listaDePessoas){
+
+                    if(pessoas.idade >= 20){
+                        
+                        listaDeAdultos.push(pessoas);
+                    }
+                }
+                console.log(listaDeAdultos);
+            }
 
         // b)
+        function exercicio2a() {
+            const listaDePessoas =  [
+                                        { nome: "Pedro", idade: 20 },
+                                        { nome: "João", idade: 10 },
+                                        { nome: "Paula", idade: 12 },
+                                        { nome: "Artur", idade: 89 } 
+                                    ];
+
+            let listaDeCriancas = [];
+
+            for (let pessoas of listaDePessoas){
+
+                if(pessoas.idade < 20){
+
+                    listaDeCriancas.push(pessoas);
+                }
+            }
+
+            console.log(listaDeCriancas);
+        }
 
 
     // 2)
 
         // a)
+       
+
 
         // b)
+           
 
         // c)
 
