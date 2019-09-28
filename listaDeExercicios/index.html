@@ -53,16 +53,38 @@
 
     // 1) 3 maneiras de se percorrer uma lista é através dos laços: while, for e for of.
 
-            // Exemplo:  
-                function exercicio1Logica(){
+            // Exemplos:  
 
-                    const listaDeNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                // Exemplo com while:
+                function exercicio1LogicaWhile() {
 
-                    let indice = 0;
+                    const listaDeNumeros = [1, 2, 3, 4, 5, 6, 7];
 
-                    while (indice < listaDeNumeros.length) {
-                    console.log(listaDeNumeros[indice]);
-                    indice = indice + 1;
+                    let i = 0;
+
+                    while (i < listaDeNumeros.length) {
+                        console.log(listaDeNumeros[i]);
+                        i = i + 1;
+                    }
+                }
+
+                // Exemplo com For:
+                function exercicio1LogicaFor() {
+
+                    const listaDeNomes = ["Thalita", "Luciana", "Veronica", "Gabriela", "Saionara"];
+
+                    for (let i = 0; i < listaDeNomes.length; i = i + 1) {
+                        console.log(listaDeNomes[i]);
+                    }
+                }
+
+                // Exemplo com For of:
+                function exercicioLogicaForOf(){
+
+                    const listaNomeNumero = ["Thalita", 1, "Luciana", 2, "Veronica", 3];
+
+                    for (let lista of listaNomeNumero){
+                        console.log(lista);
                     }
                 }
 
@@ -163,66 +185,153 @@
     // 1)
 
         // a)
-            function exercicio2aMatriz() {
-                const listaDePessoas =  [
-                                            { nome: "Pedro", idade: 20 },
-                                            { nome: "João", idade: 10 },
-                                            { nome: "Paula", idade: 12 },
-                                            { nome: "Artur", idade: 89 } 
-                                        ];
+            function exercicio1aFuncoesArray() {
 
-                let listaDeAdultos = [];
+                const listaDeNomes = [
+                                        { nome: "Pedro", idade: 20 },
+                                        { nome: "João", idade: 10 },
+                                        { nome: "Paula", idade: 12 },
+                                        { nome: "Artur", idade: 89 }
+                                    ];
 
-                for (let pessoas of listaDePessoas){
-
-                    if(pessoas.idade >= 20){
-
-                        listaDeAdultos.push(pessoas);
-                    }
-                }
-                console.log(listaDeAdultos);
+                const  adultos = listaDeNomes.filter((nomes) => {
+                    if (nomes.idade >= 20){
+                        return true
+                    } 
+                    return false
+                })
+                console.log(adultos)
             }
 
+
         // b)
-            function exercicio2bMatriz() {
-                const listaDePessoas =  [
-                                            { nome: "Pedro", idade: 20 },
-                                            { nome: "João", idade: 10 },
-                                            { nome: "Paula", idade: 12 },
-                                            { nome: "Artur", idade: 89 } 
-                                        ];
+            function exercicio1bFuncoesArray() {
 
-                let listaDeCriancas = [];
+                const listaDeNomes = [
+                                        { nome: "Pedro", idade: 20 },
+                                        { nome: "João", idade: 10 },
+                                        { nome: "Paula", idade: 12 },
+                                        { nome: "Artur", idade: 89 }
+                                    ];
 
-                for (let pessoas of listaDePessoas){
-
-                    if(pessoas.idade < 20){
-
-                        listaDeCriancas.push(pessoas);
-                    }
-                }
-
-                console.log(listaDeCriancas);
+                const  criancas = listaDeNomes.filter((nomes) => {
+                    if (nomes.idade < 20){
+                       return true
+                    } 
+                    return false
+                })
+                console.log(criancas)
             }
 
 
     // 2)
 
         // a)
+            function exercicio2aFuncoesArray() {
+
+                const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20];
+
+                const numerosPares = array.filter((numeros) => {
+
+                    if (numeros % 2 === 0) {
+                        return true
+                    }
+                    return false
+                })
+
+                console.log(numerosPares)
+
+            }
        
 
 
         // b)
+            function exercicio2bFuncoesArray() {
+
+                const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20];
+
+                const numerosMultiplicaveis3 = array.filter((numeros) => {
+                    if (numeros % 3 === 0) {
+                        return true
+                    }
+                })
+
+                const numeroEmString = numerosMultiplicaveis3.map((numero) => {
+                    return "" + numero
+                })
+
+                console.log(numeroEmString)
+
+            }
+
            
 
         // c)
+            function exercicio2cFuncoesArray() {
+
+                const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20];
+
+                const numerPareImpar = array.map((numero) => {
+
+                    if (numero % 2 === 0) {
+                        return numero + " é par"
+                    }
+
+                    if (numero % 2 !== 0) {
+                        return numero + " é impar"
+                    }
+                })
+
+                console.log(numerPareImpar)
+
+            }
 
 
     // 3)
 
         // a)
+            function exercicio3aFuncoesArray() {
+
+                const pessoas = [
+                                    { nome: "Paula", idade: 12, altura: 1.8 },
+                                    { nome: "João", idade: 20, altura: 1.3 },
+                                    { nome: "Pedro", idade: 15, altura: 1.9 },
+                                    { nome: "Luciano", idade: 22, altura: 1.8 },
+                                    { nome: "Artur", idade: 10, altura: 1.2 },
+                                    { nome: "Soter", idade: 70, altura: 1.9 }
+                                ]
+
+                const pessoasAutorizadas = pessoas.filter((pessoa) => {
+                    if (pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura > 1.5) {
+                        return true
+                    }
+                })
+
+                console.log(pessoasAutorizadas)
+
+            }
 
         // b)
+            function exercicio3bFuncoesArray() {
+                
+                const pessoas = [
+                                    { nome: "Paula", idade: 12, altura: 1.8 },
+                                    { nome: "João", idade: 20, altura: 1.3 },
+                                    { nome: "Pedro", idade: 15, altura: 1.9 },
+                                    { nome: "Luciano", idade: 22, altura: 1.8 },
+                                    { nome: "Artur", idade: 10, altura: 1.2 },
+                                    { nome: "Soter", idade: 70, altura: 1.9 }
+                                ]
+
+                const pessoasNaoAutorizadas = pessoas.filter((pessoa) => {
+                    if (pessoa.idade < 14 || pessoa.idade > 60 || pessoa.altura < 1.5) {
+                        return true
+                    }
+                })
+
+                console.log(pessoasNaoAutorizadas)
+
+            }
 
     // 4)
 
