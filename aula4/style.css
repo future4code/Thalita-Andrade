@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cadastro {
+    border: 1px;
+    border-style: solid;
+    border-color: yellowgreen;
+    width: 40vh;
+    height:35vh;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+    padding: 2vh;
+}
+
+.tipoDeDespesa {
+    border: 1px;
+    border-style: solid;
+    border-color: yellowgreen;
+    width: 40vh;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+    padding: 2vh;
+}
+
+.totalDeDespesas {
+    border: 1px;
+    border-style: solid;
+    border-color: yellowgreen;
+    width: 40vh;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+    margin-right: 2vh;
+    padding: 2vh;
+}
+
+#cadastrarDespesa {
+    width: 15vh;
+    margin-top: 2vh;
+}
+
+.tipoDeGasto {
+    margin-top: 2vh;
+}
+
+.descricaoDoGasto {
+    margin-top: 2vh;
+
+}
+
+.input-detalhesTipoGasto {
+    margin-top: 2vh;
+
+}
+
+.valorMinimo{
+    margin-top: 2vh;
+}
+
+.valorMaximo{
+    margin-top: 2vh;
+}
+
+#filtrar {
+    margin-top: 2vh;
+    width: 60px;
+}
+
+#limparFiltro {
+    margin-top: 2vh; 
+    width: 100px;
+}
