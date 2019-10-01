@@ -2,9 +2,7 @@
     border: 2px solid;
     width: 400px;
     height: 100px;
-}
-.container-interno-small-card {
+    margin: 10px 0;
     display: flex;
     align-items: center;
-
 }

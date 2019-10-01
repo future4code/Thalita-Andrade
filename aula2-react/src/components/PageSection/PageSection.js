@@ -1,18 +1,16 @@
 import React from 'react';
 import './PageSection.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export function PageSection(props) {
     return (
         <div className="page-section-container">
-            <div className="title-container">
-                <h1>{props.titulo}</h1>
-            </div>
+            <h2>{props.titulo}</h2>
         </div>
     )
 }
 
 PageSection.propTypes = {
     imagem: PropTypes.string.isRequired,
-    titulo: PropTypes.string.isRequired
+    titulo: PropTypes.string.isRequired,
   }
