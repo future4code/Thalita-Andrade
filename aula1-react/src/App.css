@@ -20,3 +20,46 @@
 .App-link {
   color: #09d3ac;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  background: orange
+}
+
+.Container-interno {
+  display: grid;
+  grid-template-columns: 1fr 6fr
+}
+
+.Link-videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+ 
+}
+
+.Link-videos li {
+  border: 2px;
+  border-style: solid;
+  margin: 1vh;
+  border-color: green;
+  width: 300px;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  height: 3vh;
+}
+
+footer {
+  background: grey;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}

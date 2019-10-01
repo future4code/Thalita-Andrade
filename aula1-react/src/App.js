@@ -5,12 +5,15 @@ import './App.css';
 function App() {
   return (
 
-    <div className="container">
+    <div className="Container">
+
       <header>
         <h1>FutureTube</h1>
         <input placeholder="Buscar"></input>
       </header>
-      <section className="container-interno">
+
+      <div className="Container-interno">
+
         <aside>
           <ul>
             <li>Início</li>
@@ -21,45 +24,48 @@ function App() {
             <li>Histórico</li>
           </ul>
         </aside>
-        <div className="link-videos">
-          <ul>
+
+        <section>
+          <ul className="Link-videos">
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
             <li>
-              <img src="https://picsum.photos/id/129/200/200"></img>
+              <img src="https://picsum.photos/id/129/300/200"></img>
               <p>Título vídeo</p>
             </li>
           </ul>
+        </section>
 
-        </div>
-      </section>
-      <footer>Oi eu moro no footer!</footer>
+      </div>
+      <footer>
+        <h1>Oi eu moro no footer!</h1>
+      </footer>
     </div>
  
   );
