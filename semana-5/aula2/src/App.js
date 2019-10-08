@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Formulario from './components/Formulario';
+import FormularioPag1 from './components/FormularioPag1';
 
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div>
-       <Formulario/>
+       <FormularioPag1/>
       </div>
     );
   }
