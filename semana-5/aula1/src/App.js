@@ -3,16 +3,14 @@ import { render } from 'react-dom';
 import ListaDeTarefas from './components/ListaDeTarefas';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-
+  
     }
   }
   
   render() {
-
-  
 
     return (
       <div>

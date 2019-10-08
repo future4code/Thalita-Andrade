@@ -1,27 +1,32 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+const ItensTarefa = styled.li`
+    list-style: none;
+`
 
 class ListaDeTarefas extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             valorTarefa: '',
             listaDeTarefas: [],
         };  
     }
 
-    componentDidMount() {
-        const storedState = JSON.parse(window.localStorage.getItem("HelloState"));
-        this.setState(storedState);
-      }
+    // componentDidMount() {
+    //     const storedState = JSON.parse(window.localStorage.getItem("HelloState"));
+    //     this.setState(storedState);
+    //   }
     
-    componentWillUnmount() {
-        const stateAsString = JSON.stringify(this.state);
-        window.localStorage.setItem("HelloState", stateAsString);
-    }
+    // componentWillUnmount() {
+    //     const stateAsString = JSON.stringify(this.state);
+    //     window.localStorage.setItem("HelloState", stateAsString);
+    // }
 
-    componentDidUpdate() {
-        console.log("Fui Atualizado!");
-    }
+    // componentDidUpdate() {
+    //     console.log("Fui Atualizado!");
+    // }
 
     criarTarefa = () => {
        const novaTarefa = {
@@ -36,12 +41,13 @@ class ListaDeTarefas extends React.Component {
        })
     }
 
+
     onChangeTarefa = (event) => {
         this.setState({valorTarefa: event.target.value})
     }
 
     onChangeTarefaClick = () => {
-        this.setState({ valorTarefav: ' '});
+        this.setState({ valorTarefa: ' '});
       };
     
 
@@ -49,8 +55,8 @@ class ListaDeTarefas extends React.Component {
     render() {
 
         const todasTarefas = this.state.listaDeTarefas.map((tarefa, index) => {
-            return <li key={index} > {tarefa.cadaTarefa} 
-            </li>
+            return <ItensTarefa key={index}> <input type="checkbox"/>{tarefa.cadaTarefa} 
+            </ItensTarefa>
         })
 
         return (
@@ -63,6 +69,7 @@ class ListaDeTarefas extends React.Component {
                     placeholder="Nova Tarefa"
                     value = {this.state.valorTarefa}
                     onChange = {this.onChangeTarefa}
+        
                 />
 
                 <button  
@@ -78,6 +85,10 @@ class ListaDeTarefas extends React.Component {
                 <ul>
                     {todasTarefas}
                 </ul>
+
+                <hr/>
+
+                <h3>Tarefas Concluídas</h3>
             </div>
         );
     }
