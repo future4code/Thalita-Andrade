@@ -30,7 +30,7 @@ class TelaDeCadastro extends React.Component {
                 
                 <MainCadastro/>
                 
-                <BotoesCadastro/>
+                <BotoesCadastro salvarDespesa={this.props.salvarDespesa}/>
            </ContainerTelaCadastro>
         );
     }

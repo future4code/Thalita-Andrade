@@ -25,8 +25,22 @@ class MainCadastro extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            inputValorCad: "",
+            inputDescCad: "",
+            selectCad: "",
         };
+    }
+
+    atualizarInputValorC = (event) => {
+        this.setState({inputValorCad: event.target.value})
+    }
+
+    atualizarInputDescrC = (event) => {
+        this.setState({inputDescrCad: event.target.value})
+    }
+
+    atualizarselectCad = (event) => {
+        this.setState({selectCad: event.target.value})
     }
 
 
@@ -37,18 +51,25 @@ class MainCadastro extends React.Component {
                 <InputValorCad 
                     type="number"
                     placeholder="Digite o valor"
+                    value={this.state.inputValorCad}
+                    onChange={this.atualizarInputValorC}
                 />
 
-                <SelectValorCad>
-                    <option>Selecione</option>
-                    <option>Mercado</option>
-                    <option>Lazer</option>
-                    <option>Outros</option>
+                <SelectValorCad
+                    value={this.state.selectCad}
+                    onChange={this.atualizarselectCad}
+                >
+                    <option value="">Selecione</option>
+                    <option value="mercado">Mercado</option>
+                    <option value="lazer">Lazer</option>
+                    <option value="outros">Outros</option>
                 </SelectValorCad> 
 
                 <InputDescriCad 
                     type="text"
                     placeholder="Digite a descrição"
+                    value={this.state.inputDescrCad}
+                    onChange={this.atualizarInputDescrC}
                 />
 
             </ContainerMainCad>
