@@ -31,9 +31,22 @@ class FormularioPag2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-   
+        curso: '',
+        uniEnsino: '',
     };
   }
+
+  onChangeInputCurso = (event) => {
+    this.setState({curso: event.target.value})
+  }
+
+  onChangeInputUniEnsino= (event) => {
+    this.setState({uniEnsino: event.target.value})
+  }
+
+  onClickButtonForm2 = (event) => {
+
+}
 
   render() {
     return (
@@ -45,8 +58,8 @@ class FormularioPag2 extends React.Component {
             <Input2
                 name="curso"
                 type="text"
-                value={}
-                onChange={}
+                value={this.state.curso}
+                onChange={this.onChangeInputCurso}
              />
 
 
@@ -54,11 +67,11 @@ class FormularioPag2 extends React.Component {
             <Input2 
                 name="unidadeEnsino"
                 type="text"
-                value={}
-                onChange={}
+                value={this.state.uniEnsino}
+                onChange={this.onChangeInputUniEnsino}
             />
 
-            <Button2 onClick={} >Finalizar</Button2>
+            <Button2 onClick={this.onClickButtonForm2} >Finalizar</Button2>
 
           </Form2>
       </div>
