@@ -26,6 +26,7 @@ const ContainerApp = styled.div `
   }
 
   render(){
+    console.log(this.state.listaDeDespesas)
     return (
       <ContainerApp>
         <TelaDeCadastro salvarDespesa={this.salvarDespesa}/>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import BotoesCadastro from './BotoesCadastro'
 
 
 const ContainerMainCad = styled.div `
@@ -26,9 +27,18 @@ class MainCadastro extends React.Component {
         super(props);
         this.state = {
             inputValorCad: "",
-            inputDescCad: "",
+            inputDescrCad: "",
             selectCad: "",
         };
+    }
+
+    addDespesa = () => {
+        const novaDespesa = {
+            valor: this.state.inputValorCad,
+            descricao: this.state.inputDescrCad,
+            categoria: this.state.selectCad,
+        }
+        this.props.salvarDespesa(novaDespesa)
     }
 
     atualizarInputValorC = (event) => {
@@ -71,6 +81,8 @@ class MainCadastro extends React.Component {
                     value={this.state.inputDescrCad}
                     onChange={this.atualizarInputDescrC}
                 />
+
+                 <BotoesCadastro salvarDespesa={this.addDespesa}/>
 
             </ContainerMainCad>
         );
