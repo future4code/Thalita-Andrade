@@ -62,7 +62,7 @@ const TelaDeCadastro = (props) => {
             </ContainerInputsCadastro>
           
 
-            <ButtonSalvarCadastro>Salvar</ButtonSalvarCadastro>
+            <ButtonSalvarCadastro onClick={props.createUser}>Salvar</ButtonSalvarCadastro>
 
         </ContainerCadastro>
     );
@@ -74,7 +74,8 @@ TelaDeCadastro.propTypes = {
 
     InputEmail: PropTypes.func.isRequired,
     onChangeEmail: PropTypes.func.isRequired,
-
+    
+    createUser: PropTypes.func.isRequired,
 }
 
 export default TelaDeCadastro;

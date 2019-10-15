@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import axios from 'axios';
 import styled from 'styled-components'
 import TelaDeCadastro from './components/TelaDeCadastro';
+import TelaListaUsuario from './components/TelaListaUsuario';
 
 const ContainerApp = styled.div `
   display: flex;
@@ -16,11 +17,9 @@ class App extends React.Component {
       listaDeCadastro: [],
       inputNome: '',
       inputEmail: '',
+      errorMessage: undefined,
     }
   }
-
-    // urlBase: "https://us-central1-future4-users.cloudfunctions.net/api"
-    // token: "59b24f3229f4bbf3c49cea1e9c5fc609"
 
   getAllUsers = () => {
  
@@ -28,7 +27,7 @@ class App extends React.Component {
       "https://us-central1-future4-users.cloudfunctions.net/api/users/getAllUsers",
       {
         headers: {
-          auth: "59b24f3229f4bbf3c49cea1e9c5fc609"
+          "api-token": "59b24f3229f4bbf3c49cea1e9c5fc609"
         }
       }
     );
@@ -47,12 +46,33 @@ class App extends React.Component {
       });
   };
 
+
+  // getUser = userId => {
+  //   const request = axios.get(
+  //     "https://us-central1-future4-users.cloudfunctions.net/api/users/getUser/${userId}",
+  //     {
+  //       headers: {
+  //         "api-token":  "59b24f3229f4bbf3c49cea1e9c5fc609"
+  //       }
+  //     }
+  //   );
+
+  //   request
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
+
+
   
 
   createUser = () => {
 
     const data = {
-      nome: this.state.inputNome,
+      name: this.state.inputNome,
       email: this.state.inputEmail,
     };
 
@@ -61,7 +81,7 @@ class App extends React.Component {
       data,
       {
         headers: {
-          auth: "59b24f3229f4bbf3c49cea1e9c5fc609"
+          "api-token": "59b24f3229f4bbf3c49cea1e9c5fc609"
         }
       }
     );
@@ -85,8 +105,21 @@ class App extends React.Component {
     this.setState({inputEmail: event.target.value})
   }
 
+  //  gerarListaDeCadastrados() {
+  //       const listaDeCadastrados = this.state.listaDeCadastro.map(
+  //           (cadaCadastro) => {
+  //             const funcaoIntermediaria = () => {
+  //               this.getUser(cadaCadastro.id);
+  //             };
+  //             return <li onClick={funcaoIntermediaria}>{cadaCadastro.name}</li>;
+  //           });
+  //         return listaDeCadastrados
+  //       }
 
   render() {
+
+    // const listaDeCadastrados = this.gerarListaDeCadastrados() 
+
     return(
       <ContainerApp>
         <TelaDeCadastro
@@ -95,11 +128,20 @@ class App extends React.Component {
 
           valorEmail={this.state.inputEmail}
           onChangeEmail={this.onChangeEmail}
+
+          createUser={this.createUser}
+        />
+
+        <TelaListaUsuario
         />
       </ContainerApp>
     )
   }
 }
+
+
+    // urlBase: "https://us-central1-future4-users.cloudfunctions.net/api"
+    // token: "59b24f3229f4bbf3c49cea1e9c5fc609"
 
 render(<App />, document.getElementById('root'));
 
