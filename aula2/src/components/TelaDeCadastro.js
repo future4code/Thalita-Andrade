@@ -36,8 +36,15 @@ class TelaDeCadastro extends React.Component {
         this.state = {
             inputNome: '',
             inputEmail: '',
+            errorMessage: undefined,
         }
     }
+
+    // alertaInputEmBarco = () => {
+    //     if((this.state.inputNome === " ") && (this.state.inputEmail === " ")){
+    //         window.alert("Preencha o campo nome e email")
+    //     }
+    // }
 
     salvarAoClicar = () => {
    
@@ -57,6 +64,13 @@ class TelaDeCadastro extends React.Component {
         ).then(() => {
           window.alert("Usuário salvo com sucesso!")
         })
+        .catch(error => {
+            console.log(error);
+            this.setState({
+                errorMessage:
+                "Ocorreu um erro! Atualize a página para tentar novamente!"
+            });
+        });
     }
     
     onChangeNome = (event) => {

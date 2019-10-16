@@ -21,6 +21,7 @@ class TelaListaUsuario extends React .Component {
         super(props)
         this.state = {
             listaDeCadastrados: [],
+            errorMessage: undefined,
         }
     }
 
@@ -39,6 +40,13 @@ class TelaListaUsuario extends React .Component {
             })
             console.log(res.data)
         })
+        .catch(error => {
+            console.log(error);
+            this.setState({
+                errorMessage:
+                "Ocorreu um erro! Atualize a página para tentar novamente!"
+            });
+        });
     }
        
 
