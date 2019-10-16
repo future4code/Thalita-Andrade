@@ -1,7 +1,8 @@
  
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import axios from 'axios';
+
 
 const ContainerCadastro = styled.div `
     display: flex;
@@ -29,53 +30,81 @@ const ButtonSalvarCadastro = styled.button `
      color: white;
 `
 
-const TelaDeCadastro = (props) => {
+class TelaDeCadastro extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            inputNome: '',
+            inputEmail: '',
+        }
+    }
 
-
-    return(
-        <ContainerCadastro>
-
-            <ContainerInputsCadastro>
-
-                <label htmlFor="nome">Nome:</label>
-
-                <InputName
-                    id="nome"
-                    type="text"
-                    value = {props.inputNome}
-                    onChange={props.onChangeNome}
-                />
-
-            </ContainerInputsCadastro>
-
-            <ContainerInputsCadastro>
-                
-                <label htmlFor="email">E-mail:</label>
-
-                <InputEmail
-                    id="email"
-                    type="email"
-                    value = {props.valorEmail}
-                    onChange={props.onChangeEmail}
-                />
-
-            </ContainerInputsCadastro>
-          
-
-            <ButtonSalvarCadastro onClick={props.createUser}>Salvar</ButtonSalvarCadastro>
-
-        </ContainerCadastro>
-    );
-}
-
-TelaDeCadastro.propTypes = {
-    inputNome: PropTypes.func.isRequired,
-    onChangeNome: PropTypes.func.isRequired,
-
-    InputEmail: PropTypes.func.isRequired,
-    onChangeEmail: PropTypes.func.isRequired,
+    salvarAoClicar = () => {
+   
+        const data = {
+          name: this.state.inputNome,
+          email: this.state.inputEmail,
+        }
+        console.log(data)
+        axios.post(
+          "https://us-central1-future4-users.cloudfunctions.net/api/users/createUser",
+          data,
+          {
+            headers: {
+              "api-token": "59b24f3229f4bbf3c49cea1e9c5fc609"
+            }
+          }
+        ).then(() => {
+          window.alert("Usuário salvo com sucesso!")
+        })
+    }
     
-    createUser: PropTypes.func.isRequired,
+    onChangeNome = (event) => {
+      this.setState({inputNome: event.target.value})
+    }
+  
+    onChangeEmail = (event) => {
+      this.setState({inputEmail: event.target.value})
+    }
+  
+    render() {
+
+        return(
+            <ContainerCadastro>
+
+                <ContainerInputsCadastro>
+
+                    <label htmlFor="nome">Nome:</label>
+
+                    <InputName
+                        id="nome"
+                        type="text"
+                        value={this.state.name}
+                        onChange={this.onChangeNome}
+                    />
+
+                </ContainerInputsCadastro>
+
+                <ContainerInputsCadastro>
+                    
+                    <label htmlFor="email">E-mail:</label>
+
+                    <InputEmail
+                        id="email"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.onChangeEmail}
+                    />
+
+                </ContainerInputsCadastro>
+            
+
+                <ButtonSalvarCadastro onClick={this.salvarAoClicar} >Salvar</ButtonSalvarCadastro>
+
+            </ContainerCadastro>
+        );
+    }
 }
+
 
 export default TelaDeCadastro;
