@@ -40,13 +40,16 @@ class TelaDeCadastro extends React.Component {
         }
     }
 
-    // alertaInputEmBarco = () => {
+    //  alertaInputEmBarco = () => {
     //     if((this.state.inputNome === " ") && (this.state.inputEmail === " ")){
     //         window.alert("Preencha o campo nome e email")
     //     }
     // }
 
+
     salvarAoClicar = () => {
+
+        // alertaInputEmBarco()
    
         const data = {
           name: this.state.inputNome,
