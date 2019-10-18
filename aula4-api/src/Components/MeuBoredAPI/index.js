@@ -9,7 +9,7 @@ class MeuBoredAPITest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            allTypes: [],
+            allTypes: ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"],
             currentSelectedType: '',
             retrievedActivity: '',
         };
@@ -18,15 +18,15 @@ class MeuBoredAPITest extends React.Component {
     fetchAllTypes = async () => {
         const typesRequestConfig = {
             params: {
-                type: this.currentSelectedType,
+                type: this.state.currentSelectedType,
             }
         }
         const response = await axios.get(`${baseURL}activity`, typesRequestConfig)
-        this.setState({allTypes: response.data.type});
+        this.setState({ allTypes: response.data.activity });
     }
 
-    componentDidMount(){
-        this.fetchAllTypes();
+    componentDidMount() {
+        // this.fetchAllTypes();
     }
 
     handleTypeSelection = (event) => {
@@ -35,43 +35,43 @@ class MeuBoredAPITest extends React.Component {
     }
 
     fetchSelectedActivity = async () => {
-        const response  = await axios.get(this.state.currentSelectedType);
-        this.setState({retrievedActivity: response.data.activity})
+        const response = await axios.get(this.state.currentSelectedType);
+        this.setState({ retrievedActivity: response.data.activity })
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.currentSelectedType !== this.state.currentSelectedType) {
+        if (prevState.currentSelectedType !== this.state.currentSelectedType) {
             this.fetchSelectedActivity();
         }
     }
 
     render() {
+        console.log(this.state.allTypes)
         return (
             <div>
-               <select
+                <select
                     onChange={this.handleTypeSelection}
                     value={this.state.currentSelectedType}
-               >
+                >
                     <option> Escolha o tipo de atividade</option>
 
                     {this.state.allTypes.map((activity) => {
                         return (
-                            <option 
-                                key = {activity.type}
-                                value = {activity.type}
-                            > 
-                                {activity.type}
+                            <option key={activity}
+                                value={activity}
+                            >
+                                {activity}
                             </option>
                         )
                     })}
-               </select>
+                </select>
 
                 {
                     this.state.fetchSelectedActivity && (
                         <h1>{this.state.fetchSelectedActivity}</h1>
                     )
-                } 
-             </div>
+                }
+            </div>
         )
     }
 }

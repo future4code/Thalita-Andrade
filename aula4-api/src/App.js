@@ -10,11 +10,11 @@ function App() {
   return (
     <div>
 
-      {/* //Esta com erros// */}
+      {/* /Funcionando// */}
       <MeuBoredAPITest/>
 
-      {/* //Esta com erros// */}
-      {/* <ShibeAPITest/> */}  
+      {/* //Funcionando// */}
+      {/* <ShibeAPITest/>   */}
 
       {/* //Funcionando// */}
       {/* <PokemonAPITest/>   */}

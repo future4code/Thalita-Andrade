@@ -25,7 +25,7 @@ class ShibeAPITest extends React.Component {
 
     refreshDogs = () => {
         axios
-            .get("https://shibe.online/api/shibes", {
+            .get("http://shibe.online/api/shibes", {
                 params: {
                     count: 10,
                 }
