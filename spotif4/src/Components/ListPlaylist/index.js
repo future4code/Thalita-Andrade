@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
-import ListMusics from "../ListMusics/ListMusics";
+import ListMusics from "../ListMusics";
+
 
 const ContainerListPlaylist = styled.div `
     display: flex;
@@ -97,7 +98,7 @@ class ListPlaylist extends React.Component {
 
                     </ContainerItem>
 
-                    {/* <ListMusics/> */}
+                  <ListMusics/>
    
             </ContainerListPlaylist>
         )
