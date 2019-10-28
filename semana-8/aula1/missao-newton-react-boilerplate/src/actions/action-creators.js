@@ -53,13 +53,22 @@ function allCompletedTasks() {
     }
 }
 
-function removeAllCompleteTask() {
+function RemoveAllCompletedTasks() {
     return {
         type: 'REMOVER_TODAS_TAREFAS_COMPLETAS'
         payload: {
             filter: filter
-            
         }
     }
 }
+
+function markAllCompleteTasks() {
+    return {
+        type: 'MAARCAR_TODAS_TAREFAS_COMO_COMPLETAS'
+        payload: {
+            filter: filter
+        }
+    }
+}
+
 
