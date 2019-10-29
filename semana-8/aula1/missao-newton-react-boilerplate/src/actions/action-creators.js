@@ -1,6 +1,6 @@
 function addTask() {
     return {
-        type: 'ADD_TAREFA'
+        type: 'ADD_TAREFA',
         payload: {
             text: text
         }
@@ -9,7 +9,7 @@ function addTask() {
 
 function completeTask() {
     return {
-        type: 'CONCLUIR_TAREFA'
+        type: 'CONCLUIR_TAREFA',
         payload: {
             id: id
         }
@@ -18,7 +18,7 @@ function completeTask() {
 
 function deleteTask() {
     return {
-        type: 'DELETAR_TAREFA'
+        type: 'DELETAR_TAREFA',
         payload: {
             id: id
         }
@@ -28,7 +28,7 @@ function deleteTask() {
 
 function allTasks() {
     return {
-        type: 'TODAS_TAREFAS'
+        type: 'TODAS_TAREFAS',
         payload: {
             filter: filter
         }
@@ -37,7 +37,7 @@ function allTasks() {
 
 function allPendingTasks() {
     return {
-        type: 'TODAS_TAREFAS_PENDENTES'
+        type: 'TODAS_TAREFAS_PENDENTES',
         payload: {
             filter: filter
         }
@@ -46,7 +46,7 @@ function allPendingTasks() {
 
 function allCompletedTasks() {
     return {
-        type: 'TODAS_TAREFAS_CONCLUIDAS'
+        type: 'TODAS_TAREFAS_CONCLUIDAS',
         payload: {
             filter: filter
         }
@@ -55,7 +55,7 @@ function allCompletedTasks() {
 
 function RemoveAllCompletedTasks() {
     return {
-        type: 'REMOVER_TODAS_TAREFAS_COMPLETAS'
+        type: 'REMOVER_TODAS_TAREFAS_COMPLETAS',
         payload: {
             filter: filter
         }
@@ -64,7 +64,7 @@ function RemoveAllCompletedTasks() {
 
 function markAllCompleteTasks() {
     return {
-        type: 'MAARCAR_TODAS_TAREFAS_COMO_COMPLETAS'
+        type: 'MAARCAR_TODAS_TAREFAS_COMO_COMPLETAS',
         payload: {
             filter: filter
         }
