@@ -7,7 +7,7 @@ function addTask() {
     }
 }
 
-function completeTask() {
+function completedTask() {
     return {
         type: 'CONCLUIR_TAREFA',
         payload: {
