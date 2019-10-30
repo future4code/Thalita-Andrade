@@ -4,6 +4,7 @@ import Title4Task from './Title/Title';
 import AddTask from '../containers/Add-Tesk/AddTask';
 import AllTask from '../containers/AllTask/AllTask';
 import Buttons4Task from './Buttons/Buttons';
+import { connect } from 'react-redux';
 
 const Container4Task = styled.div`
 	display: flex;
@@ -28,3 +29,13 @@ export class AppContainer extends React.Component {
 		)
 	}
 }
+
+// const mapStateToProps = state => {
+// 	return {
+
+// 	}
+// }
+
+// connect(mapStateToProps)
+
+export default (AppContainer);

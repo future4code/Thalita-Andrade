@@ -5,6 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const ListAllTask = styled(Paper) `
     width: 900px;
@@ -49,4 +50,10 @@ const AllTask = () => {
     );
 }
 
-export default AllTask;
+function mapStateToProps (state) {
+    return {
+        tasks: state.tasksReducer
+    }
+}
+
+export default connect(mapStateToProps)(AllTask);
