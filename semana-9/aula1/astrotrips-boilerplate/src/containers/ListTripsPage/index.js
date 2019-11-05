@@ -1,6 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 import { getTrips } from "../../actions";
+import { routes } from "../Router";
+import { push } from "connected-react-router";
 
 class ListTripsPage extends React.Component {
 
@@ -13,7 +15,7 @@ class ListTripsPage extends React.Component {
             <div>
                 {
                     this.props.listaDeViagens.map((viagem) => {
-                        return(<li>{viagem.name}</li>)
+                        return(<li>{viagem.name} <button onClick={this.props.goToDetailsPage}>Mais Detalhes</button></li>)
                     })
                 }
             </div>
@@ -24,6 +26,7 @@ class ListTripsPage extends React.Component {
 function mapDispatchToProps (dispatch) {
     return {
         buscarViagens: () => dispatch(getTrips()),
+        goToDetailsPage: () => dispatch(push(routes.tripDetailsPage)) 
     }
 }
 

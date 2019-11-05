@@ -26,4 +26,6 @@ const CreateTripPage = props => {
     );
 }
 
+
+
 export default CreateTripPage;
