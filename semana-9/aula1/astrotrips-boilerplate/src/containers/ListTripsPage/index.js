@@ -26,7 +26,7 @@ class ListTripsPage extends React.Component {
 function mapDispatchToProps (dispatch) {
     return {
         buscarViagens: () => dispatch(getTrips()),
-        goToDetailsPage: () => dispatch(push(routes.tripDetailsPage)) 
+        goToDetailsPage: () => dispatch(push(routes.tripDetailsPage))
     }
 }
 

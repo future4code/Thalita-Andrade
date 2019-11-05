@@ -19,7 +19,7 @@ class TripDetailsPage extends React.Component {
 
 function mapDispatchToProps (dispatch) {
     return {
-        buscarDetalhes: () => dispatch(getTripDetail())
+        buscarDetalhes: (id) => dispatch(getTripDetail(id))
     }
 }
 

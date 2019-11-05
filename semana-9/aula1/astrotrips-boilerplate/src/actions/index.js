@@ -9,11 +9,12 @@ const setTripsAction = (trips) => {
     };
 };
 
-const setDetailTripAction = (trip) => {
+const setDetailTripAction = (trip, id) => {
     return {
         type: "DEFINIR_DETALHE_VIAGEM",
         payload: {
         trip: trip,
+        id: id,
         }
     };
 };
@@ -29,5 +30,3 @@ export const getTripDetail = (id) => async dispatch => {
        `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trip/${id}`);
         dispatch(setDetailTripAction(response.data.trip))
 };
-
-
