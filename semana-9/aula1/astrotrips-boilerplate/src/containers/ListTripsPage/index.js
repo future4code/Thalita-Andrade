@@ -1,17 +1,39 @@
 import React from "react";
+import {connect} from "react-redux";
+import { getTrips } from "../../actions";
 
-const ListTripsPage = props => {
+class ListTripsPage extends React.Component {
 
-    return (
-        <div>
-            <ul>
-                <li>Viagem 1</li>
-                <li>Viagem 1</li>
-                <li>Viagem 1</li>
-            </ul>
-            
-        </div>
-    );
+    componentDidMount() {
+        this.props.buscarViagens()
+    }
+
+    render() {
+        return (
+            <div>
+                {
+                    this.props.listaDeViagens.map((viagem) => {
+                        return(<li>{viagem.name}</li>)
+                    })
+                }
+            </div>
+        );
+    }
 }
 
-export default ListTripsPage;
+function mapDispatchToProps (dispatch) {
+    return {
+        buscarViagens: () => dispatch(getTrips()),
+    }
+}
+
+function mapStateToProps (state) {
+    return {
+        listaDeViagens: state.trips.trips
+    }
+}
+
+export default connect( 
+    mapStateToProps, 
+    mapDispatchToProps
+    )(ListTripsPage);

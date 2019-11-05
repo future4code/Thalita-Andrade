@@ -10,7 +10,7 @@ import HomePage from "../HomePage";
 import ListTripsPage from "../ListTripsPage";
 import RegistrationUserPage from "../RegistrationUserPage";
 
-const routes = {
+export const routes = {
   root: "/",
   login: "/login",
   registrationUserPage: "/registration/user",
