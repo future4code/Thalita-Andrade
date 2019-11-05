@@ -1,19 +1,19 @@
 import React from "react";
 
-const AllTripsPage = props => {
+const ApprovedListPage = props => {
 
     return (
         <div>
             <div>
-                <h3>Viagem 1</h3>
+                <h3>Aprovar ou reprovar 1</h3>
             </div>
 
             <div>
-                <h3>Viagem 2</h3>
+                <h3>Aprovar ou reprovar 2</h3>
             </div>
 
             <div>
-                <h3>Viagem 3</h3>
+                <h3>Aprovar ou reprovar 3</h3>
             </div>
 
             <button>Voltar</button>
@@ -21,4 +21,4 @@ const AllTripsPage = props => {
     );
 }
 
-export default AllTripsPage;
+export default ApprovedListPage;

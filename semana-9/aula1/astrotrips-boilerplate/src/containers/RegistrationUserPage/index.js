@@ -1,8 +1,6 @@
 import React from "react";
 
-import React from "react";
-
-const RegistrationPageUser = props => {
+const RegistrationUserPage = props => {
 
     return (
         <div>
@@ -43,4 +41,4 @@ const RegistrationPageUser = props => {
     );
 }
 
-export default RegistrationPageUser;
+export default RegistrationUserPage;
