@@ -101,7 +101,7 @@ class CreateTripPage extends React.Component {
                     placeholder="Duração"
                 />
     
-                <button>Criar Viagem</button>
+                <button type="submit">Criar Viagem</button>
             </FormCreateTrip>
         );
     } 

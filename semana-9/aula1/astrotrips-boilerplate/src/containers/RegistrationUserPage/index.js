@@ -1,5 +1,7 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
+import {connect} from "react-redux";
+import { getTrips } from "../../actions";
 
 const FormRegistrationUser = styled.form `
     margin-top: 20px;
@@ -24,6 +26,11 @@ class RegistrationUserPage extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.buscarViagens()
+    }
+
+
     onChangeValueName = (event) => {
         this.setState({valueName: event.target.value})
     }
@@ -46,6 +53,12 @@ class RegistrationUserPage extends React.Component {
     }
 
     render() {
+
+        const optionViagens = this.props.listaDeViagens.map((viagem) => {
+                return(<option value={viagem.id}>{viagem.name} - {viagem.planet}</option>)
+        })
+        
+
         return (
             <FormRegistrationUser onSubmit={this.handleSubmit}>
 
@@ -270,9 +283,8 @@ class RegistrationUserPage extends React.Component {
                 </select>
 
 
-                {/* //Falta os nome das viagens e palneta */}
                 <select name="tripId" required>
-                    <option value="">Selecione</option>
+                    {optionViagens}
                 </select>
 
                 <button type="submit">Inscreva-se</button>
@@ -282,4 +294,19 @@ class RegistrationUserPage extends React.Component {
     }   
 }
 
-export default RegistrationUserPage;
+function mapDispatchToProps (dispatch) {
+    return {
+        buscarViagens: () => dispatch(getTrips()),
+    }
+}
+
+function mapStateToProps (state) {
+    return {
+        listaDeViagens: state.trips.trips
+    }
+}
+
+export default connect(
+    mapStateToProps, 
+    mapDispatchToProps
+    )(RegistrationUserPage);
