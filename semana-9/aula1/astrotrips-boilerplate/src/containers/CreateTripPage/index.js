@@ -18,6 +18,7 @@ class CreateTripPage extends React.Component {
             valueDate: "",
             valueDescription: "",
             valueDuration: "",
+            valueSelectPlanet: ""
         }
     }
 
@@ -37,12 +38,19 @@ class CreateTripPage extends React.Component {
         this.setState({valueDuration: event.target.value})
     }
 
+    onChangeValueSelect = (event) => {
+    
+        this.setState({valueSelectPlanet: event.target.value})
+
+    }
+
     handleSubmit = event =>{
         event.preventDefault();
         alert("Validado com sucesso!")
     }
 
     render() {
+        console.log(this.state.valueSelectPlanet)
         return (
             <FormCreateTrip onSubmit={this.handleSubmit}>
     
@@ -57,16 +65,21 @@ class CreateTripPage extends React.Component {
                     placeholder="Nome"
                 />
     
-                <select name="planet" required>
+                <select 
+                    name="planet" 
+                    required
+                    value={this.state.valueSelectPlanet}
+                    onChange={this.onChangeValueSelect}
+                >
                     <option value="">Selecione o planeta</option>
-                    <option>Mercúrio</option>
-                    <option>Vênus</option>
-                    <option>Terra</option>
-                    <option>Marte</option>
-                    <option>Júpiter</option>
-                    <option>Saturno</option>
-                    <option>Urano</option>
-                    <option>Netuno</option>
+                    <option value="Mercúrio">Mercúrio</option>
+                    <option value="Vênus">Vênus</option>
+                    <option value="Terra">Terra</option>
+                    <option value="Marte">Marte</option>
+                    <option value="Júpiter">Júpiter</option>
+                    <option value="Saturno">Saturno</option>
+                    <option value="Urano">Urano</option>
+                    <option value="Netuno">Netuno</option>
                 </select>
     
                 <input
