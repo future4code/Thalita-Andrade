@@ -1,11 +1,43 @@
 import React from "react";
+import styled from "styled-components"
+
+const FormRegistrationUser = styled.form `
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+`
+
 
 class RegistrationUserPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            valueName: "",
+            valueAge: "",
+            valueTextAppl: "",
+            valueProfession: "",
+            valueCountry: "",
+            valueTrip: "",
+        };
+    }
 
-        }
+    onChangeValueName = (event) => {
+        this.setState({valueName: event.target.value})
+    }
+
+    onChangeValueAge = (event) => {
+        this.setState({valueAge: event.target.value})
+    }
+
+    onChangeValueTextAppl = (event) => {
+        this.setState({valueTextAppl: event.target.value})
+    }
+
+    onChangeValueProfession = (event) => {
+        this.setState({valueProfession: event.target.value})
     }
 
     handleSubmit = event => {
@@ -15,9 +47,11 @@ class RegistrationUserPage extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <FormRegistrationUser onSubmit={this.handleSubmit}>
 
                 <input
+                    value = {this.state.valueName}
+                    onChange = {this.onChangeValueName}
                     required
                     name="name"
                     type="text"
@@ -27,6 +61,8 @@ class RegistrationUserPage extends React.Component {
                 />
 
                 <input
+                    value = {this.state.valueAge}
+                    onChange = {this.onChangeValueAge}
                     required
                     name="age"
                     type="number"
@@ -35,6 +71,8 @@ class RegistrationUserPage extends React.Component {
                 />
 
                 <input
+                    value = {this.state.valueTextAppl}
+                    onChange = {this.onChangeValueTextAppl}
                     required
                     type="textarea"
                     name="applicationText"
@@ -44,6 +82,8 @@ class RegistrationUserPage extends React.Component {
                 />
 
                 <input
+                    value = {this.state.valueProfession}
+                    onChange = {this.onChangeValueProfession}
                     required
                     type="text"
                     name="profession"
@@ -231,13 +271,13 @@ class RegistrationUserPage extends React.Component {
 
 
                 {/* //Falta os nome das viagens e palneta */}
-                <select name="tripId">
-                    <option>Selecione</option>
+                <select name="tripId" required>
+                    <option value="">Selecione</option>
                 </select>
 
                 <button type="submit">Inscreva-se</button>
                 
-            </form>
+            </FormRegistrationUser>
         );
     }   
 }

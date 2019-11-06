@@ -1,11 +1,40 @@
 import React from "react";
+import styled from "styled-components"
+
+const FormCreateTrip = styled.form `
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+`
 
 class CreateTripPage extends React.Component {
     constructor(props) {
         super(props); 
         this.state = {
-
+            valueName: "",
+            valueDate: "",
+            valueDescription: "",
+            valueDuration: "",
         }
+    }
+
+    onChangeValueName = (event) => {
+        this.setState({valueName: event.target.value})
+    }
+
+    onChangeValueDate = (event) => {
+        this.setState({valueDate: event.target.value})
+    }
+
+    onChangeValueDescription = (event) => {
+        this.setState({valueDescription: event.target.value})
+    }
+
+    onChangeValueDuration = (event) => {
+        this.setState({valueDuration: event.target.value})
     }
 
     handleSubmit = event =>{
@@ -15,9 +44,11 @@ class CreateTripPage extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <FormCreateTrip onSubmit={this.handleSubmit}>
     
                 <input
+                    value={this.state.valueName}
+                    onChange={this.onChangeValueName}
                     required
                     name="name"
                     pattern="^[a-zA-Z]{5,}"
@@ -26,8 +57,8 @@ class CreateTripPage extends React.Component {
                     placeholder="Nome"
                 />
     
-                <select name="planet">
-                    <option>Selecione o planeta</option>
+                <select name="planet" required>
+                    <option value="">Selecione o planeta</option>
                     <option>Mercúrio</option>
                     <option>Vênus</option>
                     <option>Terra</option>
@@ -39,6 +70,8 @@ class CreateTripPage extends React.Component {
                 </select>
     
                 <input
+                    value={this.state.valueDate}
+                    onChange={this.onChangeValueDate}
                     required
                     name="date"
                     type="date"
@@ -47,6 +80,8 @@ class CreateTripPage extends React.Component {
                 />
     
                 <input
+                    value={this.state.valueDescription}
+                    onChange={this.onChangeValueDescription}
                     required
                     name="description"
                     type="textarea"
@@ -56,6 +91,8 @@ class CreateTripPage extends React.Component {
                 />
     
                 <input
+                    value={this.state.valueDuration}
+                    onChange={this.onChangeValueDuration}
                     required
                     name="durationInDays"
                     type="number"
@@ -65,7 +102,7 @@ class CreateTripPage extends React.Component {
                 />
     
                 <button>Criar Viagem</button>
-            </form>
+            </FormCreateTrip>
         );
     } 
 }
