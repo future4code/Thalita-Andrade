@@ -19,25 +19,7 @@ const setDetailTripAction = (trip, id) => {
     };
 };
 
-const setCreateTrip = (trip) => {
-    return {
-        type: "CRIAR_VIAGEM",
-        payload: {
-            trip: trip,
-        }
-    }
-}
 
-// const setApplyToTrip = (trip) => {
-//     return {
-//         type: "INSCRICAO_VIAGEM",
-//         payload: {
-//             trip: trip,   
-//         }
-//     }
-// }
-
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlNWYnVXR1NqTElrTVYyU25NS2NjIiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNTkyMjN9.jqDIuIiM1BSZpahVu7-d8BBBxeWsFDaOy4M8D-t3JgI"
 
 export const getTrips = () => async dispatch => {
     const response = await axios.get(
@@ -55,25 +37,22 @@ export const getTripDetail = (id) => async dispatch => {
 };
 
 export const postCreateTrip = (trip) => async dispatch => {
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlNWYnVXR1NqTElrTVYyU25NS2NjIiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNTkyMjN9.jqDIuIiM1BSZpahVu7-d8BBBxeWsFDaOy4M8D-t3JgI"
 
-    // const data = {
-    //     name,
-    //     planet,
-    //     date,
-    //     description,
-    //     durationInDays,
-    // }
     const response = await axios.post(
         `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips`, trip,  {
             headers: { auth: token }
         }
     );
     console.log(response)
-        // dispatch(setCreateTrip(response.data.trip))
 }
 
-// export const postApplyToTrip = (id) => async dispatch => {
-//     const response = await axios.post(
-//         `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips/${id}/apply`);
-//         dispatch(setApplyToTrip(response.data.trip))
-// }
+export const postApplyToTrip = (id, trip) => async dispatch => {
+    const token = window.localStorage.getItem("token")
+    const response = await axios.post(
+        `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips/${id}/apply`, trip, {
+            headers: { auth: token }
+        }
+    );
+    console.log(response)
+}

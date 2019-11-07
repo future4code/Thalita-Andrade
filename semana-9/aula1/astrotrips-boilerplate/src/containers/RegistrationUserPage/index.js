@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import { getTrips } from "../../actions";
+import { postApplyToTrip } from "../../actions";
 
 const FormRegistrationUser = styled.form `
     margin-top: 20px;
@@ -61,12 +62,17 @@ class RegistrationUserPage extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        alert("Validado com sucesso")
+        const createUser = {
+            name: this.state.valueName,
+            age: this.state.valueAge,
+            applicationText: this.state.valueTextAppl,
+            profession: this.state.valueProfession,
+            country: this.state.valueCountry,
+        }
+        this.props.createUser(createUser)
     }
 
     render() {
-        console.log(this.state.valueSelectCountry)
-        console.log(this.state.valueSelectTrip)
 
         const optionViagens = this.props.listaDeViagens.map((viagem) => {
                 return(<option value={viagem.id}>{viagem.name} - {viagem.planet}</option>)
@@ -321,6 +327,7 @@ class RegistrationUserPage extends React.Component {
 function mapDispatchToProps (dispatch) {
     return {
         buscarViagens: () => dispatch(getTrips()),
+        createUser: (trip) => dispatch(postApplyToTrip(trip))
     }
 }
 
