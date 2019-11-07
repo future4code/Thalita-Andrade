@@ -2,6 +2,8 @@
 const initialState =  {
     trips: [],
     tripDetail: {},
+    createTrip: [],
+    subscriptionTrip: []
 }
 
 export const trips = (state = initialState, action) => {
@@ -14,6 +16,16 @@ export const trips = (state = initialState, action) => {
         case 'DEFINIR_DETALHE_VIAGEM':
 
             return { ...state, tripDetail: action.payload.trip };
+
+    
+        case 'CRIAR_VIAGEM':
+
+            return { ...state, createTrip: action.payload.trip };
+
+
+        case 'INSCRICAO_VIAGEM':
+
+            return { ...state, subscriptionTrip: action.payload.trip };
 
         default: 
             return state;

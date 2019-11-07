@@ -50,7 +50,9 @@ class CreateTripPage extends React.Component {
     }
 
     render() {
-        console.log(this.state.valueSelectPlanet)
+
+        const newDate = new Date().toISOString().split("T")[0];
+
         return (
             <FormCreateTrip onSubmit={this.handleSubmit}>
     
@@ -88,7 +90,7 @@ class CreateTripPage extends React.Component {
                     required
                     name="date"
                     type="date"
-                    min="01/01/2020"
+                    min={newDate}
                     title="Somente datas futuras"
                 />
     
@@ -98,7 +100,7 @@ class CreateTripPage extends React.Component {
                     required
                     name="description"
                     type="textarea"
-                    pattern="^[a-zA-Z]{30,}"
+                    pattern="[a-zA-Z\s]{30,}"
                     title="A descrição deve ter no mínimo 30 letras"
                     placeholder="Descrição"
                 />

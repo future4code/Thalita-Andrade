@@ -19,6 +19,25 @@ const setDetailTripAction = (trip, id) => {
     };
 };
 
+const setCreateTrip = (trip) => {
+    return {
+        type: "CRIAR_VIAGEM",
+        payload: {
+            trip: trip,
+        }
+    }
+}
+
+const setApplyToTrip = (trip) => {
+    return {
+        type: "INSCRICAO_VIAGEM",
+        payload: {
+            trip: trip,   
+        }
+    }
+}
+
+
 export const getTrips = () => async dispatch => {
     const response = await axios.get(
         `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips`);
@@ -33,3 +52,15 @@ export const getTripDetail = (id) => async dispatch => {
        });
         dispatch(setDetailTripAction(response.data.trip))
 };
+
+export const postCreateTrip = () => async dispatch => {
+    const response = await axios.post(
+        `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips`);
+        dispatch(setCreateTrip(response.data.trip))
+}
+
+export const postApplyToTrip = (id) => async dispatch => {
+    const response = await axios.post(
+        `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips/${id}/apply`);
+        dispatch(setApplyToTrip(response.data.trip))
+}

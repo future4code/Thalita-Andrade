@@ -103,7 +103,7 @@ class RegistrationUserPage extends React.Component {
                     required
                     type="textarea"
                     name="applicationText"
-                    pattern="^[a-zA-Z]{3,}"
+                    pattern="[a-zA-Z\s]{30,}"
                     title="Escreva um texto com no mínimo 30 letras"
                     placeholder="Texto de inscrição"
                 />
@@ -114,7 +114,7 @@ class RegistrationUserPage extends React.Component {
                     required
                     type="text"
                     name="profession"
-                    pattern="^[a-zA-Z]{10,}"
+                    pattern="[a-zA-Z\s]{10,}"
                     title="A profissão deve conter no mínimo 10 letras"
                     placeholder="Profissão"
                 />
