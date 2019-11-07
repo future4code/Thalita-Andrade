@@ -1,5 +1,7 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
+import {connect} from "react-redux";
+import { postCreateTrip } from "../../actions";
 
 const FormCreateTrip = styled.form `
     margin-top: 20px;
@@ -46,7 +48,14 @@ class CreateTripPage extends React.Component {
 
     handleSubmit = event =>{
         event.preventDefault();
-        alert("Validado com sucesso!")
+        const createTrip = {
+            name: this.state.valueName,
+            planet: this.state.valueSelectPlanet,
+            date: this.state.valueDate,
+            description: this.state.valueDescription,
+            durationInDays: this.state.valueDuration,
+        }
+        this.props.createTrip(createTrip)
     }
 
     render() {
@@ -100,7 +109,7 @@ class CreateTripPage extends React.Component {
                     required
                     name="description"
                     type="textarea"
-                    pattern="[a-zA-Z\s]{30,}"
+                    pattern="^.{30,}$"
                     title="A descrição deve ter no mínimo 30 letras"
                     placeholder="Descrição"
                 />
@@ -123,5 +132,15 @@ class CreateTripPage extends React.Component {
 }
 
 
+function mapDispatchToProps (dispatch) {
+    return {
+        createTrip: (trip) => dispatch(postCreateTrip(trip)),
+    }
+}
 
-export default CreateTripPage;
+
+
+export default connect(
+    null, 
+    mapDispatchToProps
+    )(CreateTripPage);
