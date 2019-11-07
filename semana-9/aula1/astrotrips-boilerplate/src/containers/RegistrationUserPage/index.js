@@ -23,6 +23,8 @@ class RegistrationUserPage extends React.Component {
             valueProfession: "",
             valueCountry: "",
             valueTrip: "",
+            valueSelectCountry: "",
+            valueSelectTrip: ""
         };
     }
 
@@ -47,12 +49,24 @@ class RegistrationUserPage extends React.Component {
         this.setState({valueProfession: event.target.value})
     }
 
+    onChangeValueSelectCountry = (event) => {
+    
+        this.setState({valueSelectCountry: event.target.value})
+
+    }
+
+    onChangeSelectTrip = (event) => {
+        this.setState({valueSelectTrip: event.target.value})
+    }
+
     handleSubmit = event => {
         event.preventDefault();
         alert("Validado com sucesso")
     }
 
     render() {
+        console.log(this.state.valueSelectCountry)
+        console.log(this.state.valueSelectTrip)
 
         const optionViagens = this.props.listaDeViagens.map((viagem) => {
                 return(<option value={viagem.id}>{viagem.name} - {viagem.planet}</option>)
@@ -89,7 +103,7 @@ class RegistrationUserPage extends React.Component {
                     required
                     type="textarea"
                     name="applicationText"
-                    pattern="[a-zA-Z\s\\.,]"
+                    pattern="^[a-zA-Z]{3,}"
                     title="Escreva um texto com no mínimo 30 letras"
                     placeholder="Texto de inscrição"
                 />
@@ -105,7 +119,11 @@ class RegistrationUserPage extends React.Component {
                     placeholder="Profissão"
                 />
 
-                <select name="country">
+                <select name="country"      
+                    value={this.state.valueSelectCountry}
+                    onChange={this.onChangeValueSelectCountry}
+                >
+                    <option value="">Selecione o país</option>
                     <option value="África do Sul">África do Sul</option>
                     <option value="Albânia">Albânia</option>
                     <option value="Alemanha">Alemanha</option>
@@ -283,7 +301,13 @@ class RegistrationUserPage extends React.Component {
                 </select>
 
 
-                <select name="tripId" required>
+                <select 
+                    name="tripId" 
+                    required
+                    value={this.state.valueSelectTrip}
+                    onChange={this.onChangeSelectTrip}
+                >
+                    <option value="">Selecione a Viagem</option>
                     {optionViagens}
                 </select>
 

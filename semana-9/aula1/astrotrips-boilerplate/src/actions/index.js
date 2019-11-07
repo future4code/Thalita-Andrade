@@ -26,7 +26,10 @@ export const getTrips = () => async dispatch => {
 };
 
 export const getTripDetail = (id) => async dispatch => {
+    const token = window.localStorage.getItem("token")
     const response = await axios.get(
-       `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trip/${id}`);
+       `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trip/${id}`, {
+           headers: { auth: token}
+       });
         dispatch(setDetailTripAction(response.data.trip))
 };

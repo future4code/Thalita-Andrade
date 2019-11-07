@@ -1,12 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import { getTripDetail } from "../../actions";
 
 class TripDetailsPage extends React.Component {
-
-    componentDidMount() {
-        this.props.buscarDetalhes()
-    }
 
     render(){
         return (
@@ -17,12 +12,6 @@ class TripDetailsPage extends React.Component {
     } 
 }
 
-function mapDispatchToProps (dispatch) {
-    return {
-        buscarDetalhes: (id) => dispatch(getTripDetail(id))
-    }
-}
-
 function mapStateToProps (state) {
     return{
         detalhesViagem: state.trips.tripDetail
@@ -31,5 +20,5 @@ function mapStateToProps (state) {
 
 export default connect(
     mapStateToProps, 
-    mapDispatchToProps
+    null
     )(TripDetailsPage);
