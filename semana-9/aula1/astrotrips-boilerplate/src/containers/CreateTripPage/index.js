@@ -98,7 +98,7 @@ class CreateTripPage extends React.Component {
                     required
                     name="description"
                     type="textarea"
-                    pattern="^[a-zA-Z]{30,}"
+                    pattern="[a-zA-Z\s\\.,]"
                     title="A descrição deve ter no mínimo 30 letras"
                     placeholder="Descrição"
                 />

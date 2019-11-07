@@ -5,6 +5,8 @@ import { push } from "connected-react-router";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import { login } from "../../actions/auth";
+
 
 const LoginWrapper = styled.form`
   width: 100%;
@@ -30,6 +32,12 @@ class LoginPage extends Component {
     });
   };
 
+  onClickLogin = () => {
+    const { email, password } = this.state;
+
+    this.props.doLogin(email, password);
+  }
+
   render() {
     const { email, password } = this.state;
 
@@ -49,7 +57,7 @@ class LoginPage extends Component {
           label="Password"
           value={password}
         />
-        <Button onClick={this.props.goToAdminPage}>Login</Button>
+        <Button onClick={this.onClickLogin}>Login</Button>
       </LoginWrapper>
     );
   }
@@ -57,7 +65,7 @@ class LoginPage extends Component {
 
 function mapDispatchToProps (dispatch) {
   return {
-      goToAdminPage: () => dispatch(push(routes.adminPage)),
+    doLogin: (email, password) => dispatch(login(email, password))
   }
 }
 

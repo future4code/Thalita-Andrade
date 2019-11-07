@@ -68,7 +68,7 @@ class RegistrationUserPage extends React.Component {
                     required
                     name="name"
                     type="text"
-                    pattern="[a-zA-Z]{3,}"
+                    pattern="^[a-zA-Z]{3,}"
                     title="O nome precisa ter no mínimo 3 letras"
                     placeholder="Nome Completo"
                 />
@@ -100,7 +100,7 @@ class RegistrationUserPage extends React.Component {
                     required
                     type="text"
                     name="profession"
-                    pattern="[a-zA-Z]{10,}"
+                    pattern="^[a-zA-Z]{10,}"
                     title="A profissão deve conter no mínimo 10 letras"
                     placeholder="Profissão"
                 />
