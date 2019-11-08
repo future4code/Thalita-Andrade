@@ -4,16 +4,31 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { login } from "../../actions/auth";
+import Paper from '@material-ui/core/Paper';
 
 
 const LoginWrapper = styled.form`
-  width: 100%;
-  height: 100vh;
-  gap: 10px;
+  gap: 20px;
   place-content: center;
   justify-items: center;
   display: grid;
-`;
+`
+const FormLogin = styled(Paper) `
+  width: 300px;
+  height: 300px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`
+const ContainerLogin = styled.div `
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background: #dedede;
+`
+
 
 class LoginPage extends Component {
   constructor(props) {
@@ -40,23 +55,29 @@ class LoginPage extends Component {
     const { email, password } = this.state;
 
     return (
-      <LoginWrapper>
-        <TextField
-          onChange={this.handleFieldChange}
-          name="email"
-          type="email"
-          label="E-mail"
-          value={email}
-        />
-        <TextField
-          onChange={this.handleFieldChange}
-          name="password"
-          type="password"
-          label="Password"
-          value={password}
-        />
-        <Button onClick={this.onClickLogin}>Login</Button>
-      </LoginWrapper>
+      <ContainerLogin>
+      <FormLogin>
+    
+        <LoginWrapper>
+          <TextField
+            onChange={this.handleFieldChange}
+            name="email"
+            type="email"
+            label="E-mail"
+            value={email}
+          />
+          <TextField
+            onChange={this.handleFieldChange}
+            name="password"
+            type="password"
+            label="Password"
+            value={password}
+          />
+          <Button onClick={this.onClickLogin}>Login</Button>
+        </LoginWrapper>
+          
+      </FormLogin>
+      </ContainerLogin>
     );
   }
 }

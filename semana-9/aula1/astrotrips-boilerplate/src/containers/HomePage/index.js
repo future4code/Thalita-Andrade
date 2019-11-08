@@ -6,10 +6,10 @@ import { push } from "connected-react-router";
 import Button from '@material-ui/core/Button';
 
 const ContainerButtonHome = styled.div `
-    display: grid;
-    grid-template-columns: auto;
+    gap: 10px;
+    place-content: center;
     justify-items: center;
-    align-items: center;
+    display: grid;
     background: #dedede;
     width: 100vw;
     height: 100vh;
@@ -17,20 +17,22 @@ const ContainerButtonHome = styled.div `
 const ButtonHome = styled(Button)`
    width: 200px;
    height: 100px;
-   background: #0062cc;
 `
 
-
-
+const MainButtonHome = styled.div `
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+`
 
 const HomePage = props => {
 
     return (
         <ContainerButtonHome>
-            <div>
-                <ButtonHome   variant="contained" onClick={props.goToLogin}> Login </ButtonHome>
-                <ButtonHome  variant="contained"  onClick={props.goToRegistrationUserPage} > Inscreva-se </ButtonHome>
-            </div>
+            <MainButtonHome>
+                <ButtonHome  variant="contained" color="primary" onClick={props.goToLogin}> Login </ButtonHome>
+                <ButtonHome  variant="contained" color="primary" onClick={props.goToRegistrationUserPage} > Inscreva-se </ButtonHome>
+            </MainButtonHome>
         </ContainerButtonHome>
     );
 }

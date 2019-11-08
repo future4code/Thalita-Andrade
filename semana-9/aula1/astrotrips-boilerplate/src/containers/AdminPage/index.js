@@ -1,7 +1,31 @@
 import React from "react";
+import styled from "styled-components";
 import { connect } from "react-redux";
 import { routes } from "../Router";
 import { push } from "connected-react-router";
+import Button from '@material-ui/core/Button';
+
+const ContainerAdmin = styled.div `
+    background: #dedede;
+    width: 100vw;
+    height: 100vh;
+    gap: 10px;
+    place-content: center;
+    justify-items: center;
+    display: grid;
+`
+
+const MainAdmin = styled.div `
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+`
+
+const ButtonAdmin = styled(Button) `
+    width: 200px;
+    height: 100px;
+`
 
 class AdminPage extends React.Component {
 
@@ -15,11 +39,30 @@ class AdminPage extends React.Component {
    
     render() {
         return (
-            <div>
-                <button onClick={this.props.goToCreateTripPage}>Criar novas viagem</button>
-                <button onClick={this.props.goToListTripsPage}>Todas as viagens</button>
-                <button onClick={this.props.goToApprovedListPage}>Lista de Inscrições</button>
-            </div>
+            <ContainerAdmin>
+                <MainAdmin>
+                <ButtonAdmin 
+                    variant="contained" 
+                    color="primary" 
+                    onClick={this.props.goToCreateTripPage}
+                    > Criar novas viagem
+                </ButtonAdmin>
+
+                <ButtonAdmin 
+                    variant="contained" 
+                    color="primary" 
+                    onClick={this.props.goToListTripsPage}
+                    >Todas as viagens
+                </ButtonAdmin>
+
+                <ButtonAdmin 
+                    variant="contained" 
+                    color="primary"
+                    onClick={this.props.goToApprovedListPage}
+                    >Lista de Inscrições
+                </ButtonAdmin>
+                </MainAdmin>
+            </ContainerAdmin>
         );
     }
 }
