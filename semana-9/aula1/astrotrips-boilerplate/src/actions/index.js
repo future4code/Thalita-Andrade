@@ -20,7 +20,6 @@ const setDetailTripAction = (trip, id) => {
 };
 
 
-
 export const getTrips = () => async dispatch => {
     const response = await axios.get(
         `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips`);
@@ -48,11 +47,13 @@ export const postCreateTrip = (trip) => async dispatch => {
 }
 
 export const postApplyToTrip = (id, trip) => async dispatch => {
+    console.log("ID da viagem", id)
     const token = window.localStorage.getItem("token")
     const response = await axios.post(
         `https://us-central1-missao-newton.cloudfunctions.net/futureX/thalita/trips/${id}/apply`, trip, {
             headers: { auth: token }
-        }
+        }   
     );
+
     console.log(response)
 }

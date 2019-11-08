@@ -17,16 +17,6 @@ export const trips = (state = initialState, action) => {
 
             return { ...state, tripDetail: action.payload.trip };
 
-    
-        case 'CRIAR_VIAGEM':
-
-            return { ...state, createTrip: action.payload.trip };
-
-
-        case 'INSCRICAO_VIAGEM':
-
-            return { ...state, subscriptionTrip: action.payload.trip };
-
         default: 
             return state;
     }

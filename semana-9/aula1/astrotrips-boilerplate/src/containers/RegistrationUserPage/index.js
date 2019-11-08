@@ -22,8 +22,6 @@ class RegistrationUserPage extends React.Component {
             valueAge: "",
             valueTextAppl: "",
             valueProfession: "",
-            valueCountry: "",
-            valueTrip: "",
             valueSelectCountry: "",
             valueSelectTrip: ""
         };
@@ -58,6 +56,8 @@ class RegistrationUserPage extends React.Component {
 
     onChangeSelectTrip = (event) => {
         this.setState({valueSelectTrip: event.target.value})
+
+        console.log(event.target.value)
     }
 
     handleSubmit = event => {
@@ -67,7 +67,8 @@ class RegistrationUserPage extends React.Component {
             age: this.state.valueAge,
             applicationText: this.state.valueTextAppl,
             profession: this.state.valueProfession,
-            country: this.state.valueCountry,
+            country: this.state.valueSelectCountry,
+            tripId: this.state.valueSelectTrip
         }
         this.props.createUser(createUser)
     }
@@ -77,7 +78,6 @@ class RegistrationUserPage extends React.Component {
         const optionViagens = this.props.listaDeViagens.map((viagem) => {
                 return(<option value={viagem.id}>{viagem.name} - {viagem.planet}</option>)
         })
-        
 
         return (
             <FormRegistrationUser onSubmit={this.handleSubmit}>
@@ -214,9 +214,6 @@ class RegistrationUserPage extends React.Component {
                     <option value="Ilhas Cook">Ilhas Cook</option>
                     <option value="Ilhas Curaçao">Ilhas Curaçao</option>
                     <option value="Ilhas Marshall">Ilhas Marshall</option>
-                    <option value="Ilhas Turks & Caicos">Ilhas Turks & Caicos</option>
-                    <option value="Ilhas Virgens (brit.)">Ilhas Virgens (brit.)</option>
-                    <option value="Ilhas Virgens(amer.)">Ilhas Virgens(amer.)</option>
                     <option value="Ilhas Wallis e Futuna">Ilhas Wallis e Futuna</option>
                     <option value="Índia">Índia</option>
                     <option value="Indonésia">Indonésia</option>
@@ -282,7 +279,6 @@ class RegistrationUserPage extends React.Component {
                     <option value="Singapura">Singapura</option>
                     <option value="Síria">Síria</option>
                     <option value="Sri Lanka">Sri Lanka</option>
-                    <option value="St. Kitts & Nevis">St. Kitts & Nevis</option>
                     <option value="St. Lúcia">St. Lúcia</option>
                     <option value="St. Vincent">St. Vincent</option>
                     <option value="Sudão">Sudão</option>
@@ -293,7 +289,6 @@ class RegistrationUserPage extends React.Component {
                     <option value="Taiwan">Taiwan</option>
                     <option value="Tanzânia">Tanzânia</option>
                     <option value="Togo">Togo</option>
-                    <option value="Trinidad & Tobago">Trinidad & Tobago</option>
                     <option value="Tunísia">Tunísia</option>
                     <option value="Turquia">Turquia</option>
                     <option value="Ucrânia">Ucrânia</option>
@@ -316,18 +311,20 @@ class RegistrationUserPage extends React.Component {
                     <option value="">Selecione a Viagem</option>
                     {optionViagens}
                 </select>
-
+            
                 <button type="submit">Inscreva-se</button>
-                
+
             </FormRegistrationUser>
+          
         );
+     
     }   
 }
 
 function mapDispatchToProps (dispatch) {
     return {
         buscarViagens: () => dispatch(getTrips()),
-        createUser: (trip) => dispatch(postApplyToTrip(trip))
+        createUser: (id, trip) => dispatch(postApplyToTrip(id, trip))
     }
 }
 
