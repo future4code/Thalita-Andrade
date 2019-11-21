@@ -23,7 +23,7 @@ describe("planner actions", () => {
             const expectedAction = {
                 type: 'PEGAR_TAREFAS',
                 payload: {
-                    planner: mockPlanners
+                    tasks: mockPlanners
                 }
             };
 
