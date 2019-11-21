@@ -11,7 +11,6 @@ class Planner extends React.Component {
       valueSelectDay: "",
 
     }
-    console.log(this.state.valueSelectDay)
   }
 
   onChangeValueSelect = (event) => {
@@ -20,6 +19,11 @@ class Planner extends React.Component {
 
   onChangeValueTask = (event) => {
     this.setState({valueTask: event.target.value})
+  }
+
+  handleCreateTask = () => {
+    const {valueTask, valueSelectDay} = this.state
+    this.props.createTask(valueTask, valueSelectDay)
   }
 
 
@@ -53,7 +57,7 @@ class Planner extends React.Component {
           <option value="Sábado">Sábado</option>
           <option value="Domingo">Domingo</option> 
         </select>
-        <button onClick={this.createTask}>Adicionar Tarefa</button>
+        <button onClick={this.handleCreateTask}>Adicionar Tarefa</button>
 
         <hr/>
 
@@ -90,7 +94,7 @@ class Planner extends React.Component {
 
 function mapDispatchToProps (dispatch) {
   return {
-    createTask: () => dispatch(createTaskAPI())
+    createTask: (valueTask, valueSelectDay) => dispatch(createTaskAPI(valueTask, valueSelectDay))
   }
 
 }

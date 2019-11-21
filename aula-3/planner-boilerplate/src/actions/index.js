@@ -1,16 +1,6 @@
 import axios from "axios"
 
-const createTask = (text, day) => {
-    return {
-        type: 'ADICIONAR_TAREFAS',
-        payload: {
-            text: text,
-            day: day,
-        }
-    }
-}
-
-const getTasks = (tasks) => {
+export const getTasks = tasks => {
     return {
         type: 'PEGAR_TAREFAS',
         payload: {
@@ -21,19 +11,22 @@ const getTasks = (tasks) => {
 
 export const getTasksAPI = () => async dispatch => {
     const response = await axios.get(
-        `https://us-central1-missao-newton.cloudfunctions.net/generic/:planner-thalita`,
+        `https://us-central1-missao-newton.cloudfunctions.net/generic/planner-thalita`,
+        )
         dispatch(getTasks(response.data.tasks))
-    )
-    console.log("Tarefa", response)
 }
 
 
-export const createTaskAPI = () => async dispatch => {
+export const createTaskAPI = (text, day) => async dispatch => {
+    const newTask = {
+        text,
+        day,
+    }
     const response = await axios.post(
-        `https://us-central1-missao-newton.cloudfunctions.net/generic/:planner-thalita`, 
-        dispatch(createTask(response.data.text.day))
+        `https://us-central1-missao-newton.cloudfunctions.net/generic/planner-thalita`, newTask
     )
-
-    console.log("Criar", response)
+    if (response.status === 200){
+        dispatch(getTasksAPI())
+    }
 }
 
