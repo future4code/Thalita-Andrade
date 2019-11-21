@@ -9,7 +9,6 @@ class Planner extends React.Component {
     this.state = {
       valueTask: "",
       valueSelectDay: "",
-
     }
   }
 
@@ -60,32 +59,34 @@ class Planner extends React.Component {
         <button onClick={this.handleCreateTask}>Adicionar Tarefa</button>
 
         <hr/>
+        <div>
 
-        <h4>Segunda - Feira</h4>
+          <h4>Segunda - Feira</h4>
 
-        <hr/>
+          <hr/>
 
-        <h4>Terça - Feira</h4>
+          <h4>Terça - Feira</h4>
 
-        <hr/>
+          <hr/>
 
-        <h4>Quarta - Feira</h4>
+          <h4>Quarta - Feira</h4>
 
-        <hr/>
+          <hr/>
 
-        <h4>Quinta - Feira</h4>
+          <h4>Quinta - Feira</h4>
 
-        <hr/>
+          <hr/>
 
-        <h4>Sexta - Feira</h4>
+          <h4>Sexta - Feira</h4>
 
-        <hr/>
+          <hr/>
 
-        <h4>Sábado</h4>
+          <h4>Sábado</h4>
 
-        <hr/>
+          <hr/>
 
-        <h4>Domingo</h4>
+          <h4>Domingo</h4>
+        </div>
         
       </div>
       );
