@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createTaskAPI } from "../../actions";
+import { createTaskAPI, getTasksAPI } from "../../actions";
 
 
 class Planner extends React.Component {
@@ -10,24 +10,43 @@ class Planner extends React.Component {
       valueTask: "",
       valueSelectDay: "",
     }
-  }
+  };
 
   onChangeValueSelect = (event) => {
     this.setState({valueSelectDay: event.target.value})
-  }
+  };
 
   onChangeValueTask = (event) => {
     this.setState({valueTask: event.target.value})
-  }
+  };
+
+  clearNewTaskValue = () => {
+    this.setState({ valueTask: "" });
+    this.setState({ valueSelectDay: "" });
+  };
 
   handleCreateTask = () => {
     const {valueTask, valueSelectDay} = this.state
     this.props.createTask(valueTask, valueSelectDay)
+
+    this.clearNewTaskValue();
+  };
+
+  componentDidMount() {
+    this.props.getTasks()
   }
 
-
+  
   render() {
 
+    // const tasksDay = this.props.createTask.filter((task) => {
+    //     return(
+    //       <ul>
+    //         <li>{task.text} {task.day} </li>
+    //       </ul>
+    //     )
+    //   })
+    
 
     return (
       <div>
@@ -62,7 +81,6 @@ class Planner extends React.Component {
         <div>
 
           <h4>Segunda - Feira</h4>
-
           <hr/>
 
           <h4>Terça - Feira</h4>
@@ -93,14 +111,20 @@ class Planner extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  allTasks: state.tasks
+})
+
 function mapDispatchToProps (dispatch) {
   return {
-    createTask: (valueTask, valueSelectDay) => dispatch(createTaskAPI(valueTask, valueSelectDay))
+    createTask: (valueTask, valueSelectDay) => dispatch(createTaskAPI(valueTask, valueSelectDay)),
+
+    getTasks: () => dispatch(getTasksAPI())
   }
 
 }
 
 export default connect(
-  null, 
+  mapStateToProps, 
   mapDispatchToProps
   )(Planner);
