@@ -38,18 +38,16 @@ class Planner extends React.Component {
 
   
   render() {
-
-    // const tasksDay = this.props.createTask.filter((task) => {
-    //     return(
-    //       <ul>
-    //         <li>{task.text} {task.day} </li>
-    //       </ul>
-    //     )
-    //   })
-    
-
-    return (
+      const taskDay = this.props.allTasks.map((task) => {
+                      return(
+                        <ul>
+                          <li>{task.text}</li>
+                        </ul>
+                      )
+                    });
+    return(
       <div>
+     
         <h2> Planner Semanal</h2>
 
         <hr/>
@@ -81,6 +79,8 @@ class Planner extends React.Component {
         <div>
 
           <h4>Segunda - Feira</h4>
+
+          {taskDay}
           <hr/>
 
           <h4>Terça - Feira</h4>
@@ -112,7 +112,7 @@ class Planner extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  allTasks: state.tasks
+  allTasks: state.planner.task
 })
 
 function mapDispatchToProps (dispatch) {
