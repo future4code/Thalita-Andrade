@@ -2,3 +2,16 @@
 // e uma string representando uma nova tarefa, em seguida o programa deve adicionar a nova tarefa 
 // em um arquivo que tenha o nome da lista de tarefas.
 
+const fs = require('fs');
+const taskListName = "Task.txt"; 
+const newTask =  'Ir ao mercado.';
+
+try {
+    fs.writeFileSync(taskListName, newTask);
+    console.log("Lista criada e tarefa adicionada com sucesso!")
+} catch(e) {
+    console.error(e)
+}
+ 
+
+
