@@ -5,7 +5,7 @@ import { readdir } from 'fs';
 
 readdir("textos", function(err, files: string[]){
     if(err) {
-        console.log("Error getting file information.")
+        console.log("Não foi possível encontrar o arquivo.")
     } else {
         files.forEach(function(file: string) {
            console.log(file)
