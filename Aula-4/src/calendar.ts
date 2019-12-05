@@ -4,6 +4,8 @@
 
 import { readFile } from 'fs';
 
+const fileCalendar: string = "calendar.json"
+
 type event = {
     name: string,
     description: string,
@@ -27,13 +29,13 @@ const getEvents = (err: Error, data: Buffer) => {
 
 console.log("1");
 
-readFile(event1, getEvents);
+readFile(fileCalendar, getEvents);
 
 console.log("2");
 
 
-const createEvent = () => {
-    
-}
+// const createEvent = () => {
+
+// }
 
 

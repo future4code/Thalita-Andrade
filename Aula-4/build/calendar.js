@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
+const fileCalendar = "calendar.json";
 const event1 = {
     name: "Evento de tecnologia",
     description: "Evento sobre backend",
@@ -15,6 +16,6 @@ const getEvents = (err, data) => {
     console.log("Arquivo lido com sucesso", fileContent);
 };
 console.log("1");
-fs_1.readFile(event1, getEvents);
+fs_1.readFile(fileCalendar, getEvents);
 console.log("2");
 //# sourceMappingURL=calendar.js.map
