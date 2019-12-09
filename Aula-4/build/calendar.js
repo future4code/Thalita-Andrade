@@ -15,7 +15,5 @@ const getEvents = (err, data) => {
     const fileContent = data.toString();
     console.log("Arquivo lido com sucesso", fileContent);
 };
-console.log("1");
 fs_1.readFile(fileCalendar, getEvents);
-console.log("2");
 //# sourceMappingURL=calendar.js.map

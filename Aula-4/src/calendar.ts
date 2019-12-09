@@ -27,11 +27,8 @@ const getEvents = (err: Error, data: Buffer) => {
     console.log("Arquivo lido com sucesso", fileContent);
 };
 
-console.log("1");
-
 readFile(fileCalendar, getEvents);
 
-console.log("2");
 
 
 // const createEvent = () => {
