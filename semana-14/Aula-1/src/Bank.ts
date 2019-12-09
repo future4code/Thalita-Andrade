@@ -1,13 +1,28 @@
-// accounts: UserAccount[];
+import { JSONFileManager } from './JSONFileManager';
+import { UserAccount } from './UserAccount';
+
 // fileManager: JSONFileManager
 
-// createAccount(): void;
-// getAllAccounts(): UserAccount[];
-// getAccountByCpf(): UserAccount;
-// saveAccounts(): void
-
 export class Bank {
+    accounts: UserAccount[];
     constructor( ){
-        
+        this.accounts = []
+    }
+
+    public createAccount(): void{
+
+    }
+
+    public getAllAccounts(): UserAccount[] {
+
+    }
+
+    public getAccountByCpf(): UserAccount {
+
+    }
+
+    public saveAccounts(): void {
+
     }
 }
+

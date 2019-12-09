@@ -1,8 +1,5 @@
 import { Transaction } from './Transaction';
 
-// getBalance(): number;
-// addBalance: void;
-
 export class UserAccount {
     balance: number;
     cpf: string;
@@ -17,4 +14,15 @@ export class UserAccount {
         this.age = age,
         this.transactions = []
     }
+
+    public getBalance(): number {
+
+    }
+
+    public addBalance(): void {
+
+    }
 }
+
+
+
