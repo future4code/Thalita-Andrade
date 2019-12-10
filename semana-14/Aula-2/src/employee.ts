@@ -1,5 +1,11 @@
-export abstract class Employee  {
-    // Qualquer empregado desta empresa possui um nome e um salário.
+// export abstract class Employee  {
+//     protected name: string;
+//     protected salary: number;
 
-    protected abstract sayJob(): void;
-}
+//     constructor(name: string, salary: number){
+//         this.name = name;
+//         this.salary = salary;
+//     }
+
+//     protected abstract sayJob(): void;
+// }

@@ -1,1 +1,3 @@
-export const dishesList = []
+export const dishesList = ["Feijoada", "Brigadeiro"]
+
+console.log(dishesList)
