@@ -1,0 +1,20 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "module": "system",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node build/test.js --target es6",
+    "dish": "tsc && node build/dish.js --target es6",
+    "dessert": "tsc && node build/dessert.js --target es6",
+    "saltydish": "tsc && node build/saltydish.js --target es6"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.12.15"
+  }
+}
