@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mission_1 = require("./mission");
 class MobileMission extends mission_1.Mission {
-    constructor(team, startDate, endDate, teacherList, studentList) {
-        super(startDate, endDate, teacherList, studentList);
+    constructor(team, startDate, endDate, teacherList) {
+        super(startDate, endDate, teacherList);
         this.team = team;
     }
 }

@@ -11,6 +11,6 @@ class Teacher {
     }
 }
 exports.Teacher = Teacher;
-const teacher = new Teacher(specialty_1.Specialty.HTML, "Thalita", "thalita.andrade@gmail.com", moment("1996-07-28"));
-console.log(teacher);
+const teacher1 = new Teacher(specialty_1.Specialty.HTML, "Thalita", "thalita.andrade@gmail.com", moment("1996-07-28"));
+console.log(teacher1);
 //# sourceMappingURL=teacher.js.map

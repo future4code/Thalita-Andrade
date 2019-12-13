@@ -9,7 +9,8 @@
     "start": "tsc && node build/test.js --target es6",
     "index": "tsc && node build/index.js --target es6",
     "mission": "tsc && node build/mission.js --target es6",
-    "teacher": "tsc && node build/teacher.js --target es6"
+    "teacher": "tsc && node build/teacher.js --target es6",
+    "student": "tsc && node build/student.js --target es6"
   },
   "author": "",
   "license": "ISC",
