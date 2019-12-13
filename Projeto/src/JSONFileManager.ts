@@ -13,5 +13,3 @@ export class JSONFileManager {
         return JSON.parse(fs.readFileSync(this.fileName).toString())
     }
 }
-
-

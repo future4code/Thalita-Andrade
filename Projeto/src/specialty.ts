@@ -1,4 +1,4 @@
-enum Specialty {
+export enum Specialty {
     HTML = "HTML",
     CSS = "CSS",
     JS = "JS",
