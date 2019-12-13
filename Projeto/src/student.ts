@@ -16,3 +16,6 @@ export class Student implements User {
         this.dateOfBirth = dateOfBirth
     }
 }
+
+const student: Student = new Student(Mission ,"Gabriela", "gabriela@gmail.com", moment("1997-01-17"))
+console.log(student)

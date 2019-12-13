@@ -16,3 +16,5 @@ export class Teacher implements User{
     }
 }
 
+const teacher: Teacher = new Teacher(Specialty.HTML, "Thalita", "thalita.andrade@gmail.com", moment("1996-07-28"))
+console.log(teacher)
