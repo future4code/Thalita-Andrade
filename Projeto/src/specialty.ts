@@ -1,2 +1,9 @@
-// Deve ser um ENUM, com os valores: 
-// HTML, CSS, JS, React, Redux, Back e Orientação a Objetos.
+enum Specialty {
+    HTML = "HTML",
+    CSS = "CSS",
+    JS = "JS",
+    REACT = "React",
+    REDUX = "Redux",
+    BACK = "Back",
+    OO = "Orientação a Objetos",
+}
