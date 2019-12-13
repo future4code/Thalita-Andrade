@@ -13,4 +13,6 @@ class JSONFileManager {
     }
 }
 exports.JSONFileManager = JSONFileManager;
+const fileManager = new JSONFileManager("team.json");
+fileManager.saveToJson({ "missions": [], "students": [], "teachers": [] });
 //# sourceMappingURL=JSONFileManager.js.map

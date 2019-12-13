@@ -13,3 +13,6 @@ export class JSONFileManager {
         return JSON.parse(fs.readFileSync(this.fileName).toString())
     }
 }
+
+const fileManager = new JSONFileManager("team.json")
+fileManager.saveToJson({"missions": [],  "students": [],"teachers": []})
