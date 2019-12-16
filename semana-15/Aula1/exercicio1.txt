@@ -1,0 +1,18 @@
+USE exercicios;
+DESCRIBE funcionarios;
+
+SELECT nome, salario
+FROM funcionarios
+WHERE genero="F" AND salario>2000;
+
+SELECT nome, data_contratacao
+FROM funcionarios
+WHERE local_de_trabalho="salao" AND data_contratacao >='2004-01-01';
+
+SELECT nome, data_nascimento
+FROM funcionarios
+WHERE nome LIKE "%ei%";
+
+SELECT nome, salario, data_nascimento
+FROM funcionarios
+WHERE data_nascimento AND salario > 1300;
