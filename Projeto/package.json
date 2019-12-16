@@ -1,0 +1,22 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "module": "system",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node build/test.js --target es6",
+    "index": "tsc && node build/index.js --target es6",
+    "mission": "tsc && node build/mission.js --target es6",
+    "teacher": "tsc && node build/teacher.js --target es6",
+    "student": "tsc && node build/student.js --target es6",
+    "fileManager": "tsc && node build/JSONFileManager.js --target es6"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.12.17",
+    "moment": "^2.24.0"
+  }
+}
