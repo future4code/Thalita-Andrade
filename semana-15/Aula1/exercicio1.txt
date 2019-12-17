@@ -15,4 +15,4 @@ WHERE nome LIKE "%ei%";
 
 SELECT nome, salario, data_nascimento
 FROM funcionarios
-WHERE data_nascimento AND salario > 1300;
+WHERE YEAR(data_nascimento) > 1998 AND salario > 1300;
