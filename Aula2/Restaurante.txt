@@ -1,0 +1,30 @@
+-- EXERCÍCIO 1: Valores retornados incorretos
+
+SELECT MAX(salario) AS "Maiores Salários"
+FROM funcionarios
+ORDER BY salario ASC
+LIMIT 5;
+
+-- EXERCÍCIO 2: A média salarial para cada local de trabalho.
+
+SELECT local_de_trabalho, AVG(salario) AS "Média salarial "
+FROM funcionarios
+GROUP BY local_de_trabalho;
+
+
+
+-- EXERCÍCIO 3: Valores retornados incorretos
+
+SELECT local_de_trabalho, COUNT(genero="F") AS "Feminino", COUNT(genero="M") AS "Masculino"
+FROM funcionarios
+GROUP BY local_de_trabalho;
+
+
+-- EXERCÍCIO 4: Valores retornados incorretos
+
+SELECT MIN(data_contratacao)
+FROM funcionarios
+ORDER BY data_contratacao ASC;
+
+
+
