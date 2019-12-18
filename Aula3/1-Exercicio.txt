@@ -1,0 +1,48 @@
+1- Crie as tabelas das entidades, bem como suas relações. As informações que cada entidade deve ter são as seguintes:
+
+
+CREATE TABLE livros (
+id INT,
+titulo VARCHAR(255),
+autor_id INT,
+editora_id INT,
+ano DATE,
+PRIMARY KEY (id),
+FOREIGN KEY (autor_id)
+REFERENCES autores(id),
+FOREIGN KEY (editora_id)
+REFERENCES editoras(id)
+);
+
+CREATE TABLE autores (
+id INT,
+primeiro_nome VARCHAR(255),
+ultimo_nome VARCHAR(255),
+nacionalidade VARCHAR(255),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE editoras (
+id INT, 
+nome VARCHAR(255),
+cidade VARCHAR(255),
+fundacao DATE,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE usuarios (
+id INT,
+primeiro_nome VARCHAR(255),
+ultimo_nome VARCHAR(255),
+nacionalidade VARCHAR(255),
+data_nascimento DATE,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE usuarios_livros (
+usuario_id INT,
+livro_id INT,
+PRIMARY KEY (usuario_id, livro_id),
+FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+FOREIGN KEY (livro_id) REFERENCES livros(id)
+);
