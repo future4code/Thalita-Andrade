@@ -9,11 +9,11 @@ const connection = knex({
   client: 'mysql',
   connection: {
     host : 'ec2-18-229-236-15.sa-east-1.compute.amazonaws.com',
-    user : 'USUARIO',
-    password : 'SENHA',
-    database : 'exercicios'
+    user : 'thalita',
+    password : process.env.SENHA_BANCO,
+    database : 'thalita'
   }
-});
+});console.log(process.env.SENHA_BANCO)
 
 app.get('/', (req: Request, res: Response) => {
   const resposta = {
@@ -58,6 +58,20 @@ app.post('/mirror/:cor', (req: Request, res: Response) => {
 
   res.send(responseBody);
 });
+
+app.post('/createUser', (req: Request, res: Response) => {
+  const newUser = {
+      ...req.body,
+
+  };
+  const query = connection('register_user').insert(newUser);
+  query.then(result => {
+      res.send(result);
+  }).catch(e => {
+      res.send(e);
+  })
+});
+
 
 // Trecho do código responsável por inicializar todas as APIs
 const server = app.listen(process.env.PORT || 3000, () => {
