@@ -117,22 +117,33 @@ app.post('/createUser', (req: Request, res: Response) => {
   })
 });
 
-app.put('/editUser:id', async(req: Request, res: Response) => {
+app.put('/editUser/:id', async(req: Request, res: Response) => {
   
   const newNickName = req.body.nickname;
   const editUser = req.params.id
 
   try {
-    const query = connection('register_user').where('id', '=', editUser). update({nickname: newNickName});
+    const query = connection('register_user').where('id', '=', editUser).update({nickname: newNickName});
 
     const result = await query;
+    res.status(200).end()
   } catch (er) {
-    res.sendStatus(500).end()
+    res.status(500).send(er)
   }
-  res.sendStatus(200).end()
 });
 
-
+app.delete('/deleteUser/:id', async (req: Request, res: Response) => {
+  ​
+    const deleteUser = req.params.id
+  ​
+    try {
+      const query = connection('register_user').where('id', '=', deleteUser).del();
+      const result = await query;
+    } catch (er) {
+      res.sendStatus(500).end();
+    }
+    res.sendStatus(200).end;
+  });
 
 // Trecho do código responsável por inicializar todas as APIs
 const server = app.listen(process.env.PORT || 3000, () => {
