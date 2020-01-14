@@ -1,4 +1,8 @@
+import { CreateUserUC } from '../business/usecases/users/createUser';
+import { GetAllUsersUC } from '../business/usecases/users/getAllUsers';
 import express, {Request, Response} from 'express'
+import { BcryptImplementation } from '../services/crypt/bcryptimplementation';
+import { UserDatabase } from '../data/userDatabase';
 
 
 const app = express()
@@ -12,13 +16,28 @@ app.post("/login", async (req: Request, res: Response) => {});
 
 app.get("/getMyInformation", async (req: Request, res: Response) => {});
 
-app.post("/signup", async (req: Request, res: Response) => {});
+app.post("/signup", async (req: Request, res: Response) => {
+    try {
+        const createUserUC = new CreateUserUC( 
+            new UserDatabase(),
+            new BcryptImplementation()
+        )
+        const result = await createUserUC.execute({
+            email: req.body.email,
+            password: req.body.password
+        })
+        res.status(200).send(result)
+    } catch (err) {
+        res.status(400).send({
+            erroMessage: err.message
+        });    }
+});
 
 app.post("/changePassword", async (req: Request, res: Response) => {});
 
 app.get("/getAllUsers", async (req: Request, res: Response) => {
     try{
-        const getAllUsersUC = new getAllUsersUC(new UserDatabase());
+        const getAllUsersUC = new GetAllUsersUC(new UserDatabase());
 
         const result = await getAllUsersUC.execute();
         res.status(200).send(result);
