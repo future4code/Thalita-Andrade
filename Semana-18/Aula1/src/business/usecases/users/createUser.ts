@@ -1,7 +1,7 @@
 import { CreateUserUCOutput } from './createUser';
 import { CryptographyGateway } from '../../gateways/crypt/cryptographyGateway';
 import { User } from '../../entities/User';
-import { UserGateway } from '../../gateways/user/UserGateway';
+import { UserGateway } from '../../gateways/user/userGateway';
 import { IdGenerator } from '../../gateways/auth/idGenerator';
 
 export class CreateUserUC {
