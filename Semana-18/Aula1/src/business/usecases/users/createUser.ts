@@ -1,14 +1,15 @@
+import { IdGeneratorGateway } from './../../gateways/user/idGeneratorGateway';
 import { CreateUserUCOutput } from './createUser';
 import { CryptographyGateway } from '../../gateways/crypt/cryptographyGateway';
 import { User } from '../../entities/User';
 import { UserGateway } from '../../gateways/user/userGateway';
-import { IdGenerator } from '../../gateways/auth/idGenerator';
+
 
 export class CreateUserUC {
     constructor(
         private userGateway: UserGateway,
         private cryptographyGateway: CryptographyGateway,
-        private idGenerator: IdGenerator
+        private idGenerator: IdGeneratorGateway
     ) { }
 
     async execute(input: CreateUserUCInput): Promise<CreateUserUCOutput> {
@@ -23,9 +24,10 @@ export class CreateUserUC {
         );
         try {
             await this.userGateway.createUser(user)
-        } catch (err) {}
+        } catch (err) {
+            throw new Error ("An error ocurred")
+        }
         
-    
         return {
             message: "User created sucessfully"
         }

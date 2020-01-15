@@ -54,7 +54,8 @@ app.post("/signup", async (req: Request, res: Response) => {
     try {
         const createUserUC = new CreateUserUC(
             new UserDatabase(),
-            new BcryptImplementation()
+            new BcryptImplementation(),
+            new V4IdGenerator()
         );
         const result = await createUserUC.execute({
             email: req.body.email,

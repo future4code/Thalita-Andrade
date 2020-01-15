@@ -5,17 +5,17 @@ export class User {
         private id: string
     ) {}
 
-    public getEmail() {
+    public getEmail(): string {
         return this.email
     }
 
 
-    public getPassword() {
+    public getPassword(): string {
         return this.password
     }
 
 
-    public getId() {
+    public getId(): string {
         return this.id
     }
 }
