@@ -3,9 +3,10 @@ import { LoginUC } from './../business/usecases/auth/login';
 import { CreateUserUC } from '../business/usecases/users/createUser';
 import { GetAllUsersUC } from '../business/usecases/users/getAllUsers';
 import express, { Request, Response } from 'express'
-import { BcryptImplementation } from '../services/crypt/bcryptimplementation';
+import { BcryptService } from '../services/cryptography/bcryptService';
 import { UserDatabase } from '../data/userDatabase';
 import { JwtImplementation } from '../jwt/jwtimplementation';
+import { V4IdGenerator } from '../services/auth/v4IdGenerator';
 
 
 const app = express()
@@ -19,7 +20,7 @@ app.post("/login", async (req: Request, res: Response) => {
     try {
         const loginUC = new LoginUC (
             new UserDatabase(),
-            new BcryptImplementation(),
+            new BcryptService(),
             new JwtImplementation()
         )
         const result = await loginUC.execute(
@@ -54,7 +55,7 @@ app.post("/signup", async (req: Request, res: Response) => {
     try {
         const createUserUC = new CreateUserUC(
             new UserDatabase(),
-            new BcryptImplementation(),
+            new BcryptService(),
             new V4IdGenerator()
         );
         const result = await createUserUC.execute({
