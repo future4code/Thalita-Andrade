@@ -2,11 +2,11 @@ import { GetLoggedUserInformationUC } from './../business/usecases/users/getLogg
 import { LoginUC } from './../business/usecases/auth/login';
 import { CreateUserUC } from '../business/usecases/users/createUser';
 import { GetAllUsersUC } from '../business/usecases/users/getAllUsers';
-import express, { Request, Response } from 'express'
+import express, { Request, Response, response } from 'express'
 import { BcryptService } from '../services/cryptography/bcryptService';
 import { UserDatabase } from '../data/userDatabase';
-import { JwtImplementation } from '../jwt/jwtimplementation';
 import { V4IdGenerator } from '../services/auth/v4IdGenerator';
+import { JwtAuthService } from '../services/auth/jwtAuthService';
 
 
 const app = express()
@@ -19,9 +19,9 @@ const getTokenFromHeaders = (headers: any): string => {
 app.post("/login", async (req: Request, res: Response) => {
     try {
         const loginUC = new LoginUC (
-            new UserDatabase(),
+            new JwtAuthService(),
             new BcryptService(),
-            new JwtImplementation()
+            new UserDatabase()
         )
         const result = await loginUC.execute(
             req.body.email,
@@ -39,11 +39,12 @@ app.post("/login", async (req: Request, res: Response) => {
 app.get("/getMyInformation", async (req: Request, res: Response) => { 
     try {
         const getLoggedUserInformationUC = new GetLoggedUserInformationUC(
-            new UserDatabase(),
-            new JwtImplementation()
+            new JwtAuthService(),
+            new UserDatabase()
         )
-        const result = await getLoggedUserInformationUC.execute()
-        const token = req.header[]
+        const token = getTokenFromHeaders(req.headers)
+        const result = await getLoggedUserInformationUC.execute(token)
+            res.send(result).status(200)
     } catch( err) {
         res.status(400).send({
             erroMessage: err.message
@@ -74,10 +75,10 @@ app.post("/changePassword", async (req: Request, res: Response) => { });
 
 app.get("/getAllUsers", async (req: Request, res: Response) => {
     try {
-        const getAllUsersUC = new GetAllUsersUC(new UserDatabase());
+        // const getAllUsersUC = new GetAllUsersUC();
 
-        const result = await getAllUsersUC.execute();
-        res.status(200).send(result);
+        // const result = await getAllUsersUC.execute();
+        // res.status(200).send(result);
     } catch (err) {
         res.status(400).send({
             erroMessage: err.message
