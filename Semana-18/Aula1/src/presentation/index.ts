@@ -17,22 +17,25 @@ const getTokenFromHeaders = (headers: any): string => {
 };
 
 app.post("/login", async (req: Request, res: Response) => {
-    try {
-        const loginUC = new LoginUC (
-            new JwtAuthService(),
+    try{
+        const loginUC = new LoginUC(
+            new UserDatabase(),
             new BcryptService(),
-            new UserDatabase()
+            new JwtAuthService()
         )
-        const result = await loginUC.execute(
-            req.body.email,
-            req.body.password
-        )
-        res.status(200).send(result)
 
-    } catch (err) {
+        const result = await loginUC.execute({
+            email: req.body.email,
+            password: req.body.password
+        })
+        console.log(result)
+
+        res.send(result)
+
+    } catch(err) {
         res.status(400).send({
-            erroMessage: err.message
-        });
+            message: err.message
+        })
     }
 });
 
@@ -45,7 +48,7 @@ app.get("/getMyInformation", async (req: Request, res: Response) => {
         const token = getTokenFromHeaders(req.headers)
         const result = await getLoggedUserInformationUC.execute(token)
             res.send(result).status(200)
-    } catch( err) {
+    } catch(err) {
         res.status(400).send({
             erroMessage: err.message
         });

@@ -20,11 +20,12 @@ export class CreateUserUC {
         const user = new User(
             this.idGenerator.generateId(),
             input.email,
-            encryptedPassword
-        );
+            encryptedPassword,
+        )
         try {
             await this.userGateway.createUser(user)
         } catch (err) {
+            console.log(err.message)
             throw new Error ("An error ocurred")
         }
         

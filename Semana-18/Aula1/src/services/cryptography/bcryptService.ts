@@ -6,7 +6,7 @@ export class BcryptService implements CryptographyGateway {
     private static BCRYPT_SALT_ROUNDS: 10
     
     async encrypt(word: string): Promise<string> {
-        const salt = await bcrypt.genSalt(BcryptImplementation.BCRYPT_SALT_ROUNDS);
+        const salt = await bcrypt.genSalt(BcryptService.BCRYPT_SALT_ROUNDS);
 
         const encryptWord = await bcrypt.hash(
             word,

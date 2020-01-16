@@ -1,35 +1,37 @@
-import { UserGateway } from './../../gateways/user/userGateway';
 import { UserTokenGateway } from './../../gateways/auth/userTokenGateway';
 import { CryptographyGateway } from './../../gateways/crypt/cryptographyGateway';
+import { UserGateway } from './../../gateways/user/userGateway';
 
 export class LoginUC {
     constructor(
-        private userTokenGateway: UserTokenGateway,
-        private cryptographyGateway: CryptographyGateway,
-        private userGateway: UserGateway
-    ) {}
+        private userGateway: UserGateway,
+        private cryptographyGateway: CryptographyGateway, 
+        private userTokenGateway: UserTokenGateway
+        ){}
 
-    async execute(email: string, password: string): Promise<LoginUCOutput> {
-        
-        const user = await this.userGateway.getUserByEmail(email)
-        
-        const isPasswordRight = await this.cryptographyGateway.compare(
-            password,
-            user.getPassword()
-        )
+    async execute(input: LoginInput): Promise<LoginOutput> {
+       
+        const user =  await this.userGateway.getUserByEmail(input.email)
 
-        if(!isPasswordRight) {
-            throw new Error ("Email or password is invalid")
-        }
+        console.log(user.getPassword())
 
-        const token = this.userTokenGateway.generateToken(user.getId().toString());
+        const verifyPassword = await this.cryptographyGateway.compare(input.password, user.getPassword())
+
+        if(!verifyPassword) {
+            throw new Error ("Senha inválida")
+        } 
 
         return {
-            token
+            token: this.userTokenGateway.generateToken(user.getId())
         }
     }
 }
 
-interface LoginUCOutput {
-    token: string;
+export interface LoginOutput {
+    token: string
+}
+
+export interface LoginInput {
+    email: string,
+    password: string
 }
