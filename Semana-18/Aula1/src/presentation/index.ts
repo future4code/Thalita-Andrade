@@ -1,3 +1,5 @@
+import { RecipeDatabase } from './../data/recipeDataBase';
+import { CreateRecipeUC, CreateRecipeInput } from './../business/usecases/recipes/createRecipe';
 import { GetLoggedUserInformationUC } from './../business/usecases/users/getLoggedUserInformation';
 import { LoginUC } from './../business/usecases/auth/login';
 import { CreateUserUC } from '../business/usecases/users/createUser';
@@ -73,7 +75,54 @@ app.post("/signup", async (req: Request, res: Response) => {
     }
 });
 
-app.post("/changePassword", async (req: Request, res: Response) => { });
+app.post("/recipes",  async(req: Request, res: Response) => {
+    try {
+
+        const authService = new JwtAuthService()
+
+        const userId = authService.getUserIdFromToken(getTokenFromHeaders(req.headers))
+
+        const useCase = new CreateRecipeUC(
+            new UserDatabase(),
+            new RecipeDatabase()
+        )
+
+        const input: CreateRecipeInput = {
+            title: req.body.title,
+            description: req.body.description,
+            userId
+        }
+        
+        const result = await useCase.execute(input)
+
+        res.status(200).send(result);
+
+    } catch(err) {
+        res.status(400).send({
+            erroMessage: err.message
+        });
+    }
+})
+
+// app.post("/changePassword", async (req: Request, res: Response) => { 
+//     try {
+//         const chenagePasswordUC = new ChangeUserPasswordUC(
+//             new JwtAuthService(),
+//             new UserDatabase(),
+//             new BcryptService()
+//         );
+//         const result = await chenagePasswordUC.execute({
+//             token: getTokenFromHeaders(req.headers),
+//             oldPassword: req.body.oldPassword,
+//             newPassword: req.body.newPassword
+//         });
+//         res.status(200).send(result);
+//     } catch(err) {
+//         res.status(400).send({
+//             errorMessage: err.message
+//         });
+//     }
+// });
 
 // app.get("/getAllUsers", async (req: Request, res: Response) => {
 //     try {

@@ -9,11 +9,9 @@ export class User {
         return this.email
     }
 
-
     public getPassword(): string {
         return this.password
     }
-
 
     public getId(): string {
         return this.id

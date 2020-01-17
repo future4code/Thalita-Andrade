@@ -7,9 +7,7 @@ export class CreateRecipeUC {
     constructor(
         private userGateway: UserGateway,
         private recipeGateway: RecipeGateway
-    ) {
-
-    }
+    ) {}
 
     async execute(input: CreateRecipeInput): Promise<CreateRecipeOutput>{
 
@@ -44,7 +42,6 @@ export class CreateRecipeUC {
         const newRecipe = new Recipe(input.title, input.description, input.userId)
 
         return await this.recipeGateway.createRecipe(newRecipe)
-
     }
 }
 
@@ -57,6 +54,6 @@ export interface CreateRecipeInput {
 export interface CreateRecipeOutput {
     title: string
     description: string
-    userId: string
     createdDate: Date
+    userId: string
 }

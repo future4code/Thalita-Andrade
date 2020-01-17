@@ -1,6 +1,6 @@
 import { Recipe } from './../business/entities/Recipe';
 import { RecipeGateway } from './../business/gateways/recipe/recipeGateway';
-import * as knex from 'knex';
+import knex from 'knex';
 
 export class RecipeDatabase implements RecipeGateway{
     private connection = knex({
@@ -13,8 +13,15 @@ export class RecipeDatabase implements RecipeGateway{
         }
     });
 
-    createRecipe(recipe: Recipe): Promise<Recipe> {
+    async createRecipe(recipe: Recipe): Promise<Recipe> {
+
+        const result = await this.connection.raw(`
+        INSERT INTO Recipes (title, description, userId)
+        VALUES ("${recipe.getTitle()}",
+        "${recipe.getDescription()}",
+        "${recipe.getUserId()}");
+        `)
         
-        return undefined;
+        return recipe
     }
 }

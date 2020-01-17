@@ -18,9 +18,8 @@ describe("Test createRecipe useCase", () => {
         const input = {description: "Teste descrição", title: "Teste Titulo", userId:"1"}
 
         const recipeGateway: RecipeGateway = {
-            createRecipe: jest.fn().mockReturnValue(new Recipe(input.description, input.title, input.userId))
+            createRecipe: jest.fn().mockReturnValue(new Recipe(input.title, input.description, input.userId))
         }
-
 
         const usecase = new CreateRecipeUC(userGateway, recipeGateway)
 
@@ -45,7 +44,7 @@ describe("Test createRecipe useCase", () => {
         const input = {description: "Teste descrição", title: "", userId:"1"}
 
         const recipeGateway: RecipeGateway = {
-            createRecipe: jest.fn().mockReturnValue(new Recipe(input.description, input.title, input.userId))
+            createRecipe: jest.fn().mockReturnValue(new Recipe(input.title, input.description, input.userId))
         }
 
         const usecase = new CreateRecipeUC(userGateway, recipeGateway)

@@ -4,13 +4,12 @@ import { CryptographyGateway } from '../../gateways/crypt/cryptographyGateway';
 import { User } from '../../entities/User';
 import { UserGateway } from '../../gateways/user/userGateway';
 
-
 export class CreateUserUC {
     constructor(
         private userGateway: UserGateway,
         private cryptographyGateway: CryptographyGateway,
         private idGenerator: IdGeneratorGateway
-    ) { }
+    ) {}
 
     async execute(input: CreateUserUCInput): Promise<CreateUserUCOutput> {
         const encryptedPassword = await this.cryptographyGateway.encrypt(

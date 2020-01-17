@@ -1,15 +1,11 @@
 export class Recipe {
-    private title: string
-    private description: string
-    private creationDate: Date
-    private userId: string
 
-    constructor(title: string, description: string, creationDate: Date = new Date(), userId: string) {
-        this.title: title
-        this.description: description
-        this.creationDate: creationDate
-        this.userId: userId
-    }
+    constructor(
+        private title: string,
+        private description: string,
+        private creationDate: Date,
+        private userId: string
+    ) {}
 
     public getTitle() {
         return this.title
