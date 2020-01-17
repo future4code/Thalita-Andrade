@@ -25,7 +25,6 @@ export class CreateUserUC {
         try {
             await this.userGateway.createUser(user)
         } catch (err) {
-            console.log(err.message)
             throw new Error ("An error ocurred")
         }
         
