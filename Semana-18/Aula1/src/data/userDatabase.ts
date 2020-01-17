@@ -70,4 +70,15 @@ export class UserDatabase implements UserGateway{
             `UPDATE Users SET password='${newPassword}' WHERE id=${id};`
         );
     }
+
+    async verifyUserExists(id: string): Promise<boolean> {
+        const query = await this.connection.raw(
+            `SELECT * FROM Users WHERE id=${id};`
+        );
+
+        const returnedUser = query[0][0];
+
+        return Boolean(returnedUser);
+
+    }
 }
