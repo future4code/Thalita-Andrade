@@ -1,7 +1,7 @@
-import { IdGeneratorGateway } from './../gateways/user/idGeneratorGateway';
-import { CryptographyGateway } from './../gateways/crypt/cryptographyGateway';
-import { UserGateway } from './../gateways/user/userGateway';
-import { User } from '../entities/user';
+import { IdGeneratorGateway } from '../../gateways/auth/idGeneratorGateway';
+import { CryptographyGateway } from '../../gateways/crypt/cryptographyGateway';
+import { UserGateway } from '../../gateways/user/userGateway';
+import { User } from '../../entities/user';
 
 export class CreateUserUseCase{
     constructor(
@@ -17,6 +17,7 @@ export class CreateUserUseCase{
 
         const user = new User(
             this.idGeneratorGateway.generateId(),
+            input.name,
             input.email,
             encryptedPassword,
         )

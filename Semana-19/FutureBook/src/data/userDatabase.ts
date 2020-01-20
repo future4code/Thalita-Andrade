@@ -1,4 +1,6 @@
 import { UserGateway } from "../business/gateways/user/userGateway";
+import { User } from "../business/entities/user";
+import knex from 'knex';
 
 export class UserDatabase implements UserGateway {
 
@@ -12,5 +14,49 @@ export class UserDatabase implements UserGateway {
         }
     });
 
-   
+    public async getUserById(id: string): Promise<User> {
+        const query = await this.connection.raw(
+            `SELECT * FROM Users WHERE id='${id}';`
+        );
+
+        const returnedUser = query[0][0];
+        if (!returnedUser) {
+            throw new Error("User norFound");
+        }
+
+        return new User(
+            returnedUser.id,
+            returnedUser.name,
+            returnedUser.email,
+            returnedUser.password
+        );
+    }
+
+    public async getUserByEmail(email: string): Promise<User> {
+        const query = await this.connection.raw(
+            `SELECT * FROM Users WHERE email='${email}';`
+        );
+
+        const returnedUser = query[0][0];
+        if(!returnedUser) {
+            throw new Error("User not found");
+        }
+        return new User(
+            returnedUser.id,
+            returnedUser.name,
+            returnedUser.email,
+            returnedUser.password
+        );
+    }
+
+    public async createUser(user: User): Promise<void> {
+        await this.connection
+        .insert({
+            id: user.getId(),
+            email: user.getEmail(),
+            password: user.getPassword()
+        })
+        .into("Users");
+    }
+
 }
