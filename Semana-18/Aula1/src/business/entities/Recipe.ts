@@ -3,7 +3,7 @@ export class Recipe {
     constructor(
         private title: string,
         private description: string,
-        private creationDate: Date,
+        private creationDate: Date = new Date(),
         private userId: string
     ) {}
 

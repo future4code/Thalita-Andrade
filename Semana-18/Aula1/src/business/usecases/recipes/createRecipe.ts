@@ -1,4 +1,3 @@
-import { CreateRecipeInput } from './createRecipe';
 import { UserGateway } from './../../gateways/user/userGateway';
 import { Recipe } from '../../entities/Recipe';
 import { RecipeGateway } from '../../gateways/recipe/recipeGateway';
@@ -38,10 +37,10 @@ export class CreateRecipeUC {
         }
     }
 
-    async createRecipe(input: CreateRecipeInput){
+    createRecipe(input: CreateRecipeInput){
         const newRecipe = new Recipe(input.title, input.description, input.userId)
 
-        return await this.recipeGateway.createRecipe(newRecipe)
+        return this.recipeGateway.createRecipe(newRecipe)
     }
 }
 
@@ -54,6 +53,6 @@ export interface CreateRecipeInput {
 export interface CreateRecipeOutput {
     title: string
     description: string
-    createdDate: Date
     userId: string
+    createdDate: Date
 }
