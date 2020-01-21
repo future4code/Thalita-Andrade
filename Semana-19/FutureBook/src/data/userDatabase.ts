@@ -69,4 +69,12 @@ export class UserDatabase implements UserGateway {
         return Boolean(returnedUser);
     }
 
+    createUserRelation(followerId: string, followedId: string): Promise<void> {
+        // await this.connection.raw(`
+      
+        // `
+
+        // )
+    }
+ 
 }
