@@ -1,3 +1,4 @@
+import { UserTokenGateway } from './../../gateways/auth/userTokenGateway';
 import { IdGeneratorGateway } from '../../gateways/auth/idGeneratorGateway';
 import { CryptographyGateway } from '../../gateways/crypt/cryptographyGateway';
 import { UserGateway } from '../../gateways/user/userGateway';
@@ -7,7 +8,8 @@ export class CreateUserUseCase{
     constructor(
         private userGateway: UserGateway,
         private cryptographyGateway: CryptographyGateway,
-        private idGeneratorGateway: IdGeneratorGateway
+        private idGeneratorGateway: IdGeneratorGateway,
+        private userTokenGateway: UserTokenGateway
     ) {}
 
     async execute(input: CreateUserUseCaseInput): Promise <CreateUserUseCaseOutput> {
@@ -24,11 +26,14 @@ export class CreateUserUseCase{
 
         try {
             await this.userGateway.createUser(user)
+            
         } catch (err) {
+            console.log(err)
             throw new Error("Um erro ocorreu")
         }
 
         return {
+            token: this.userTokenGateway.generateToken(user.getId()),
             message: "Usuário criado com sucesso"
         }
     }
@@ -36,10 +41,11 @@ export class CreateUserUseCase{
 
 export interface CreateUserUseCaseInput {
     name: string,
-    email: string;
-    password: string;
+    email: string,
+    password: string
 }
 
 export interface CreateUserUseCaseOutput {
-    message: string;
+    token: string,
+    message: string
 }

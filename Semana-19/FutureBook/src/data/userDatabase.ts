@@ -16,12 +16,12 @@ export class UserDatabase implements UserGateway {
 
     public async getUserById(id: string): Promise<User> {
         const query = await this.connection.raw(
-            `SELECT * FROM Users WHERE id='${id}';`
+            `SELECT * FROM user_FutureBook WHERE id='${id}';`
         );
 
         const returnedUser = query[0][0];
         if (!returnedUser) {
-            throw new Error("User norFound");
+            throw new Error("Usuário não encontrado");
         }
 
         return new User(
@@ -34,12 +34,12 @@ export class UserDatabase implements UserGateway {
 
     public async getUserByEmail(email: string): Promise<User> {
         const query = await this.connection.raw(
-            `SELECT * FROM Users WHERE email='${email}';`
+            `SELECT * FROM user_FutureBook WHERE email='${email}';`
         );
 
         const returnedUser = query[0][0];
         if(!returnedUser) {
-            throw new Error("User not found");
+            throw new Error("Usuário não encontrado");
         }
         return new User(
             returnedUser.id,
@@ -53,10 +53,20 @@ export class UserDatabase implements UserGateway {
         await this.connection
         .insert({
             id: user.getId(),
+            name: user.getName(),
             email: user.getEmail(),
             password: user.getPassword()
         })
-        .into("Users");
+        .into("user_FutureBook");
+    }
+
+    async verifyUserExists(id: string): Promise<boolean> {
+        const query = await this.connection.raw(
+            `SELECT * FROM use_FutureBook WHERE id=${id};`
+        );
+        const returnedUser = query[0][0];
+
+        return Boolean(returnedUser);
     }
 
 }
