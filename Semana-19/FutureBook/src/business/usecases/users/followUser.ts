@@ -18,6 +18,6 @@ export class FollowUserUseCase {
 }
 
 export interface FollowUserInput {
-    followerId: string,
+    followerId: string, 
     followedId: string
 }

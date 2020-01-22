@@ -49,6 +49,15 @@ export class UserDatabase implements UserGateway {
         );
     }
 
+    public async getAllUsers(): Promise<User[]> {
+        const query = this.connection.raw("SELECT * FROM user_FutureBook;");
+        const usersFromDb = await query;
+        return usersFromDb[0].map(
+            (user: any) =>
+                new User(user.id, user.name, user.email, user.password)
+        );
+    }
+
     public async createUser(user: User): Promise<void> {
         await this.connection
         .insert({
@@ -62,19 +71,17 @@ export class UserDatabase implements UserGateway {
 
     async verifyUserExists(id: string): Promise<boolean> {
         const query = await this.connection.raw(
-            `SELECT * FROM use_FutureBook WHERE id=${id};`
+            `SELECT * FROM user_FutureBook WHERE id='${id}';`
         );
         const returnedUser = query[0][0];
 
         return Boolean(returnedUser);
     }
 
-    createUserRelation(followerId: string, followedId: string): Promise<void> {
-        // await this.connection.raw(`
-      
-        // `
-
-        // )
+    async createUserRelation(followerId: string, followedId: string): Promise<void> {
+        await this.connection.raw(`
+        INSERT INTO users_relations(follower_id, followed_id)
+        VALUES ("${followerId}", "${followedId}");
+        `)
     }
- 
 }
