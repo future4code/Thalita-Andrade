@@ -8,6 +8,7 @@ import { V4IdGenerator } from '../services/auth/v4IdGenerator';
 import { BcryptService } from '../services/cryptography/bcryptService';
 import express, {Request, Response} from 'express'
 import { UserDatabase } from '../data/userDatabase';
+import { UnfollowUserUseCase, UnfollowUserInput } from '../business/usecases/users/unfollowUser';
 
 
 const app = express()
@@ -86,12 +87,37 @@ app.post("/users/follow", async (req: Request, res: Response) => {
         });
 
     } catch(err) {
-        console.log(err)
         res.status(400).send({
             erroMessage: err.message
         })
     }
 });
+
+app.delete("/users/unfollow", async (req: Request, res: Response) => {
+    try {
+        const userId = authenticate(req)
+
+        const useCase = new UnfollowUserUseCase(
+            new UserDatabase()
+        )
+
+        const input: UnfollowUserInput = {
+            followerId: userId,
+            followedId: req.body.userToUnfollow
+        }
+
+        await useCase.execute(input)
+
+        res.status(200).send({
+            message: "Você parou de seguir esse usuário"
+        });
+
+    } catch(err) {
+        res.status(400).send({
+            erroMessage: err.message
+        })
+    }
+})
 
 app.get("/getAllUsers", async (req: Request, res: Response) => {
     try {

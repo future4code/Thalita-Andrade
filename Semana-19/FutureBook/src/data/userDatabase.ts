@@ -84,4 +84,11 @@ export class UserDatabase implements UserGateway {
         VALUES ("${followerId}", "${followedId}");
         `)
     }
+
+    async undoUserRelation(followerId: string, followedId: string): Promise<void> {
+        await this.connection.raw(`
+        DELETE FROM users_relations
+        WHERE follower_id='${followerId}' AND followed_id='${followedId}';
+        `)
+    }
 }
