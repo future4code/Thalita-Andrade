@@ -1,3 +1,5 @@
+import { PostDatabase } from './../data/postDatabase';
+import { CreatePostInput, CreatePostUseCase } from './../business/usecases/post/createPost';
 import { GetAllUsersUseCase } from './../business/usecases/users/getAllUsers';
 import { UserGateway } from './../business/gateways/user/userGateway';
 import { FollowUserUseCase, FollowUserInput } from './../business/usecases/users/followUser';
@@ -130,5 +132,31 @@ app.get("/getAllUsers", async (req: Request, res: Response) => {
         });
     }
 });
+
+app.post("/post", async (req: Request, res: Response) => {
+    try {
+        const userId = authenticate(req)
+
+        const useCase = new CreatePostUseCase(
+            new UserDatabase(),
+            new PostDatabase()
+        )
+
+        const input: CreatePostInput = {
+            userId,
+            photo: req.body.photo,
+            description: req.body.description,
+            type: req.body.type
+        }
+
+        const result = await useCase.execute(input)
+        res.status(200).send(result);
+
+    } catch (err) {
+        res.status(400).send({
+            errorMessage: err.message
+        });
+    }
+})
 
 export default app 
