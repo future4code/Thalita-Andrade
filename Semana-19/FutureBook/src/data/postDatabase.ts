@@ -1,5 +1,5 @@
-import { Post } from './../business/entities/post';
 import knex from 'knex';
+import { Post } from './../business/entities/post';
 import { PostGateway } from './../business/gateways/post/postGateway';
 
 export class PostDatabase implements PostGateway{

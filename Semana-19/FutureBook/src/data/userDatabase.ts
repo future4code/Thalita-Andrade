@@ -1,6 +1,6 @@
+import knex from 'knex';
 import { UserGateway } from "../business/gateways/user/userGateway";
 import { User } from "../business/entities/user";
-import knex from 'knex';
 
 export class UserDatabase implements UserGateway {
 
