@@ -1,3 +1,5 @@
+import { FeedDatabase } from './../data/feedFatabase';
+import { FeedGateway } from './../business/gateways/feed/feedGateway';
 import { PostDatabase } from './../data/postDatabase';
 import { CreatePostInput, CreatePostUseCase } from './../business/usecases/post/createPost';
 import { GetAllUsersUseCase } from './../business/usecases/users/getAllUsers';
@@ -11,6 +13,7 @@ import { BcryptService } from '../services/cryptography/bcryptService';
 import express, {Request, Response} from 'express'
 import { UserDatabase } from '../data/userDatabase';
 import { UnfollowUserUseCase, UnfollowUserInput } from '../business/usecases/users/unfollowUser';
+import { GetFeedUseCase, GetFeedInput } from '../business/usecases/feed/getFeed';
 
 
 const app = express()
@@ -153,6 +156,28 @@ app.post("/post", async (req: Request, res: Response) => {
         res.status(200).send(result);
 
     } catch (err) {
+        res.status(400).send({
+            errorMessage: err.message
+        });
+    }
+})
+
+app.get("/feed", async (req: Request, res: Response) => {
+    try {
+        const userId = authenticate(req)
+
+        const useCase = new GetFeedUseCase(
+            new FeedDatabase()
+        )
+
+        const input: GetFeedInput = {
+            userId
+        }
+
+        const result = await useCase.execute(input)
+
+        res.status(200).send(result);
+    } catch(err) {
         res.status(400).send({
             errorMessage: err.message
         });
