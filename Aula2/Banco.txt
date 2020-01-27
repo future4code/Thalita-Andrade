@@ -1,0 +1,54 @@
+USE exercicios;
+DESCRIBE correntistas;
+
+-- EXERCÍCIO 1: 1. Os 100 primeiros correntistas brasileiros com mais do que 3000 reais na conta corrente.
+
+SELECT primeiro_nome, pais, conta_corrente
+FROM correntistas
+WHERE pais="Brazil" AND conta_corrente > 3000
+LIMIT 100;
+
+
+-- EXERCÍCIO 2:
+
+
+
+
+-- EXERCÍCIO 3:
+
+
+
+
+-- EXERCÍCIO 4: A quantidade de Homens e Mulheres por país.
+
+SELECT pais, genero, COUNT(genero)
+FROM correntistas
+GROUP BY pais, genero
+ORDER BY pais;
+
+
+-- EXERCÍCIO 5:
+
+
+
+
+
+-- EXERCÍCIO 6:
+
+
+
+
+-- EXERCÍCIO 7:
+
+
+
+
+-- EXERCÍCIO 8: A média do valor da conta corrente por país. 
+Importante: o nome dos países deve ser exibido em caixa baixa (letras minúsculas).
+
+SELECT AVG(conta_corrente), LOWER(pais)
+FROM correntistas
+GROUP BY pais;
+
+
+-- EXERCÍCIO 9:
