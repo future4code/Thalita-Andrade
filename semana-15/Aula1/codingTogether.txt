@@ -1,0 +1,45 @@
+
+//CRIA TABELA:
+
+CREATE TABLE ProfessorF4 (
+id int PRIMARY KEY,
+nome varchar(225) NOT NULL,
+email varchar(225) NOT NULL UNIQUE,
+idade int
+);
+
+
+//INSERI VALOR NA TABELA CRIADA:
+
+INSERT INTO ProfessorF4(id, nome, email, idade)
+VALUES (1, "Thalita", "thalita.andrade@gmail.com", 23);
+
+
+//SELECIONA TODO CONTEÚDO DA TABELA:
+
+SELECT * FROM ProfessorF4;
+
+
+// SELECIONA APENAS O NOME E O EMAIL DE CADA PROFESSOR CRIADO:
+
+SELECT nome, email FROM ProfessorF4;
+
+
+// SELECIONA APENAS EMAIL E IDADE DE CADA PROFESSOR:
+
+SELECT email, idade FROM ProfessorF4;
+
+
+// SELECIONA O NOME, EMAIL E IDADE APENAS DOS USUARIOS QUE POSSUEM O NOME "Thalita":
+
+SELECT nome, email, idade
+FROM ProfessorF4,
+WHERE nome="Thalita"
+
+
+//SELECIONA OS EMAIL QUE POSSUEM @ OU O NOME "Thalita" E O ID MAIOR QUE 3
+SELECT * FROM ProfessorF4
+WHERE (email LIKE "%@%" OR nome="Thalita") AND id > 3;
+
+INSERT INTO ProfessorF4(id, nome, email)
+VALUES (6, "Thalita", "a@a.com");
