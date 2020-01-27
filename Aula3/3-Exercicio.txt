@@ -1,0 +1,13 @@
+-- Exercícico 3:
+
+-- 1.
+SELECT titulo, primeiro_nome
+FROM autores
+JOIN livros ON primeiro_nome="Lauren";
+
+
+-- 2.
+SELECT CONCAT(primeiro_nome," ", ultimo_nome) AS "Nome completo", titulo
+FROM autores
+JOIN livros ON autores.id=livros.autor_id
+WHERE primeiro_nome LIKE "A%";
