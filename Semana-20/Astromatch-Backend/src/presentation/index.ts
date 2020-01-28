@@ -61,12 +61,6 @@ app.post("/login", async (req: Request, res: Response) => {
     }
 });
 
-function authenticate(req: Request) {
-    const jwtAuthService = new JwtAuthService()
-
-    return jwtAuthService.getUserIdFromToken(getTokenFromHeaders(req.headers))
-}
-
 app.get("/getAllUsers", async (req: Request, res: Response) => {
     try {
         const getAllUsersUC = new GetAllUsersUseCase(new UserDatabase());

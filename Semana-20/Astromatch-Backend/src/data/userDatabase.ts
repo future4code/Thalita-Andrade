@@ -7,9 +7,9 @@ export class UserDatabase implements UserGateway {
     private connection = knex({
         client: 'mysql',
         connection: {
-            host: 'ec2-18-229-236-15.sa-east-1.compute.amazonaws.com',
+            host: 'ec2-54-152-149-65.compute-1.amazonaws.com',
             user: 'thalita',
-            password: 'bc72575c1f7a9679d22686119ff24124',
+            password: process.env.PASSWORD_DB,
             database: 'thalita'
         }
     });
@@ -69,8 +69,11 @@ export class UserDatabase implements UserGateway {
         .insert({
             id: user.getId(),
             name: user.getName(),
+            age: user.getAge(),
             email: user.getEmail(),
-            password: user.getPassword()
+            password: user.getPassword(),
+            photo: user.getPhoto(),
+            date_of_birth: user.getDateOfBirth()
         })
         .into("Users");
     }
