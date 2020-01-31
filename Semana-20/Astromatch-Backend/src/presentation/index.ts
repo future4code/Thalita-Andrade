@@ -11,10 +11,6 @@ import { V4IdGenerator } from '../services/auth/v4IdGenerator';
 const app = express()
 app.use(express.json()) // Linha mágica (middleware)
 
-const getTokenFromHeaders = (headers: any): string => {
-    return (headers["auth"] as string) || "";
-};
-
 app.post("/signup", async (req: Request, res: Response) => {
     try {
         const createUserUC = new CreateUserUseCase(
