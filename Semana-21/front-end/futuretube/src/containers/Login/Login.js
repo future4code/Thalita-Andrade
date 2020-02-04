@@ -6,7 +6,7 @@ class Login extends React.Component {
         this.state = {}
     }
     render() {
-        
+        return (<h1>Sou a Login</h1>)
     }
 }
 

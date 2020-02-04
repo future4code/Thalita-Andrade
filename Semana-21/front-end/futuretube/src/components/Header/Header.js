@@ -1,13 +1,13 @@
 import React from 'react';
 
-class SignUp extends React.Component {
+class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
     }
     render() {
-        return (<h1>Sou a SignUp</h1>)
+        return (<h1>Sou o Header</h1>)
     }
 }
 
-export default SignUp;
+export default Header;

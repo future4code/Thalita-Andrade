@@ -6,7 +6,7 @@ class ChangePassword extends React.Component {
         this.state = {}
     }
     render() {
-        
+        return (<h1>Sou a ChangePassword</h1>)
     }
 }
 
