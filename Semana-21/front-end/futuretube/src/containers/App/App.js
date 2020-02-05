@@ -1,15 +1,14 @@
 import React from 'react';
 import Routes from '../Router/Routes';
 import { BrowserRouter } from 'react-router-dom';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import { ContentApp } from './styled';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
-      <Routes />
-      <Footer/>
+      <ContentApp>
+        <Routes />
+      </ContentApp>
     </BrowserRouter>
   );
 }

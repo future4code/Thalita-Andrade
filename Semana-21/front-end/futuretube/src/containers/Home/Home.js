@@ -1,4 +1,7 @@
 import React from 'react';
+import { ContentHome } from './styled';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 class Home extends React.Component {
     constructor(props) {
@@ -6,7 +9,13 @@ class Home extends React.Component {
         this.state = {}
     }
     render() {
-        return (<h1>Sou a Home</h1>)
+        return (
+            <ContentHome>
+                <Header/>
+                Sou a Home
+                <Footer/>
+            </ContentHome>
+        )
     }
 }
 

@@ -1,13 +1,13 @@
 import React from 'react';
+import { ContentFooter } from './styled';
 
-class Footer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        return (<h1>Sou o Footer</h1>)
-    }
+function Footer() {
+
+    return (
+        <ContentFooter>
+            Sou o Footer
+        </ContentFooter>
+    )
 }
 
 export default Footer;

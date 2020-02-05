@@ -1,13 +1,13 @@
 import React from 'react';
+import { ContentHeader } from './styled';
 
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        return (<h1>Sou o Header</h1>)
-    }
+function Header() {
+
+    return (
+        <ContentHeader>
+            Sou o Header
+        </ContentHeader>
+    )
 }
 
 export default Header;
