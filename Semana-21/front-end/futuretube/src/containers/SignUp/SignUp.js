@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../../components/Header/Header';
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -6,7 +7,12 @@ class SignUp extends React.Component {
         this.state = {}
     }
     render() {
-        return (<h1>Sou a SignUp</h1>)
+        return (
+            <div>
+                <Header />
+                <h1>Sou a Signup</h1>
+            </div>
+        )
     }
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import { ContentHome } from './styled';
+import { ContentHome, MainHome } from './styled';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 
 class Home extends React.Component {
     constructor(props) {
@@ -10,11 +9,12 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <ContentHome>
-                <Header/>
-                Sou a Home
-                <Footer/>
-            </ContentHome>
+            <MainHome>
+                <Header />
+                <ContentHome>
+                    Sou a Home
+                </ContentHome>
+            </MainHome>
         )
     }
 }
