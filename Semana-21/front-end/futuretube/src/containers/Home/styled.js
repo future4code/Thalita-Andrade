@@ -6,5 +6,5 @@ export const MainHome = styled.div`
 `
 
 export const ContentHome = styled.div `
-  
+   
 `

@@ -36,6 +36,7 @@ export const InputSearch = styled(InputBase)`
 
 export const IconSearch = styled(SearchIcon)`
     margin-right: 20px;
+    cursor: pointer;    
 `
 
 export const SearchField = styled.div`
@@ -47,3 +48,4 @@ export const SearchField = styled.div`
     width: 30vw;
     justify-content: space-between
 `
+

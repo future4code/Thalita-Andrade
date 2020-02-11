@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 
-class ChangePassword extends React.Component {
+export default class ChangePassword extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -15,5 +15,3 @@ class ChangePassword extends React.Component {
         )
     }
 }
-
-export default ChangePassword;

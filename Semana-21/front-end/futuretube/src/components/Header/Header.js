@@ -1,10 +1,18 @@
 import React from 'react';
-import { ContentHeader, Logo, ImgLogo, ImgLogin, SearchField, IconSearch, InputSearch } from './styled';
+import { 
+    ContentHeader, 
+    Logo, 
+    ImgLogo, 
+    ImgLogin, 
+    SearchField, 
+    IconSearch, 
+    InputSearch,
+} from './styled';
 import logo from '../../assets/logo.png';
 import iconLogin from '../../assets/iconLogin.png';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-function Header() {
+export default function Header() {
 
     return (
         <ContentHeader>
@@ -32,5 +40,3 @@ function Header() {
         </ContentHeader>
     )
 }
-
-export default Header;

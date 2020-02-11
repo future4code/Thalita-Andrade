@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddVideo extends React.Component {
+export default class AddVideo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -9,5 +9,3 @@ class AddVideo extends React.Component {
         return (<h1>Sou a AddVideo</h1>)
     }
 }
-
-export default AddVideo;

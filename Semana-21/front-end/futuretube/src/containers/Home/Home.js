@@ -2,7 +2,7 @@ import React from 'react';
 import { ContentHome, MainHome } from './styled';
 import Header from '../../components/Header/Header';
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -19,4 +19,3 @@ class Home extends React.Component {
     }
 }
 
-export default Home;

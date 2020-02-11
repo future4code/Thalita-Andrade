@@ -3,7 +3,7 @@ import Routes from '../Router/Routes';
 import { BrowserRouter } from 'react-router-dom';
 import { ContentApp } from './styled';
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <ContentApp>
@@ -13,4 +13,3 @@ function App() {
   );
 }
 
-export default App;
