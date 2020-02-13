@@ -20,6 +20,7 @@ export const Logo = styled.div`
     width: 100px;
     align-items: center;
     align-content: center;
+    margin-left: 10px;
 `
 
 export const ImgLogo = styled.img`
@@ -28,6 +29,7 @@ export const ImgLogo = styled.img`
 
 export const ImgLogin = styled.img`
     width: 30px;
+    margin-right: 10px;
 `
 
 export const InputSearch = styled(InputBase)`
