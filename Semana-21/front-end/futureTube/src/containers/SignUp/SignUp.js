@@ -144,7 +144,7 @@ export default class SignUp extends React.Component {
 
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <ButtonSignDiv>
-                        <MainButtonSign>Entrar</MainButtonSign>
+                        <MainButtonSign>Cadastrar</MainButtonSign>
                     </ButtonSignDiv>
                 </Link>
 

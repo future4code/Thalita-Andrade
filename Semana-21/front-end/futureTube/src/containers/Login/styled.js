@@ -54,3 +54,7 @@ export const MainButtonLogin = styled.button`
     }
     cursor: pointer;
 `
+
+export const ErrorMessage = styled.p`
+    color: red;
+`

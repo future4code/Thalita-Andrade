@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
+import { connect } from 'react-redux';
+import { login } from '../../actions';
 import {
     InputEmail,
     InputPassword,
@@ -7,7 +9,8 @@ import {
     ContentLogin,
     TextLogin,
     ButtonLoginDiv,
-    MainButtonLogin
+    MainButtonLogin,
+    ErrorMessage
 } from './styled';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
@@ -15,23 +18,43 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import { Link } from 'react-router-dom'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            email: '',
+            password: '',
             showPassword: false
         }
     }
+
+    onClickLogin = event => {
+        event.preventDefault();
+
+        const { email, password } = this.state;
+
+        this.props.doLogin(email, password);
+    };
+
+    handleFieldChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    };
+
 
     handleClickShowPassword = () => {
         this.setState(state => ({ showPassword: !state.showPassword }));
     };
 
     render() {
-        return (
-            <ContentLogin>
 
-                <Header />
+        const { email, password } = this.setState;
+
+        return (
+            <ContentLogin onSubmit={this.onClickLogin}>
+
+                <Header/>
 
                 <TextLogin>Entrar</TextLogin>
 
@@ -45,8 +68,10 @@ export default class Login extends React.Component {
                     InputLabelProps={{
                         shrink: true
                     }}
+                    onChange={this.handleFieldChange}
                     name="email"
                     type="email"
+                    value={email}
                 />
 
                 <InputPassword
@@ -77,7 +102,11 @@ export default class Login extends React.Component {
                     name="password"
                     id="password"
                     type={this.state.showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={this.handleFieldChange}
                 />
+
+                <ErrorMessage>{this.props.errorMessage}</ErrorMessage>
 
                 <TextRegisterUser>
                     Não possui cadastro?{' '}
@@ -85,9 +114,10 @@ export default class Login extends React.Component {
                         Clique aqui.
                     </Link>
                 </TextRegisterUser>
+
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <ButtonLoginDiv>
-                        <MainButtonLogin>Entrar</MainButtonLogin>
+                        <MainButtonLogin type="submit">Entrar</MainButtonLogin>
                     </ButtonLoginDiv>
                 </Link>
 
@@ -95,4 +125,12 @@ export default class Login extends React.Component {
         )
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        doLogin: (email, password) => dispatch(login(email, password)),
+    };
+}
+
+export default connect(null, mapDispatchToProps)(Login);
 
