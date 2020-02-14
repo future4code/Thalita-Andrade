@@ -29,6 +29,7 @@ class Login extends React.Component {
     }
 
     onClickLogin = event => {
+        console.log("oi")
         event.preventDefault();
 
         const { email, password } = this.state;
@@ -115,12 +116,10 @@ class Login extends React.Component {
                     </Link>
                 </TextRegisterUser>
 
-                <Link to="/" style={{ textDecoration: 'none' }}>
-                    <ButtonLoginDiv>
-                        <MainButtonLogin type="submit">Entrar</MainButtonLogin>
-                    </ButtonLoginDiv>
-                </Link>
-
+                <ButtonLoginDiv>
+                    <MainButtonLogin type="submit">Entrar</MainButtonLogin>
+                </ButtonLoginDiv>
+  
             </ContentLogin>
         )
     }

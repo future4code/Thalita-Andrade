@@ -4,12 +4,10 @@ const initialState = {
 
 const authUser = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_REQUEST':
-      return {message: 'login request'};
     case 'LOGIN_SUCCESS':
-      return {message: 'login sucesso'};
+      return {user: action.payload.user};
     case 'LOGIN_FAILURE':
-      return {message: 'login failure'};
+      return {user: action.payload.error};
     default:
       return state;
   }

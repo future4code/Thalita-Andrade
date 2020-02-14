@@ -1,9 +1,4 @@
-export const request = (user) => ({
-    type: 'LOGIN_REQUEST',
-    payload: {
-        user
-    }
-})
+import { push } from 'connected-react-router'
 
 export const success = (user) => ({
     type: 'LOGIN_SUCCESS',
@@ -19,11 +14,17 @@ export const failure = (error) => ({
     }
 })
 
+const mockedUser = {
+    email: "thalita.andrade@gmail.com",
+    password: "123456"
+  }
+
 export const login = (email, password) => dispatch => {
     try {
-      
-
+        dispatch(success(mockedUser))
+        dispatch(push("/"))
     } catch (e) {
-
+        dispatch(failure(e))
     }
+
 }

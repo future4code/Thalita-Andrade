@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { store } from './store';
+import createStore from './store';
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 `;
+
+const store = createStore()
 
 ReactDOM.render(
     <Provider store={store}>
