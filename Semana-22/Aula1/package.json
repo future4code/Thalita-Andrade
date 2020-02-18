@@ -9,7 +9,7 @@
     "test": "node ./node_modules/jest/bin/jest.js",
     "ziplambda": "bestzip ../lambda.zip ./*",
     "build": "tsc",
-    "postbuild": "node build ./src/index.js"
+    "postbuild": "node build ./src/.js"
   },
   "author": "",
   "license": "ISC",
